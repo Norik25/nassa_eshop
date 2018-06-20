@@ -1,0 +1,155 @@
+<?php require('View/Template/header.phtml') ?>
+
+
+<div class="container" style="margin-top: 100px;">
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pridat Produkt</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="product-name" class="col-form-label">Meno Produktu:</label>
+                        <input type="text" class="form-control" id="product-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-type" class="col-form-label">Typ Produktu:</label>
+                        <input type="text" class="form-control" id="product-type">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-brand" class="col-form-label">Znacka Produktu:</label>
+                        <input type="text" class="form-control" id="product-brand">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-color" class="col-form-label">Farba Produktu:</label>
+                        <input type="text" class="form-control" id="product-color">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-size" class="col-form-label">Velikost Produktu:</label>
+                        <input type="text" class="form-control" id="product-size">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price" class="col-form-label">Cena Produktu:</label>
+                        <input type="text" class="form-control" id="product-price">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-quantity" class="col-form-label">Kvantita Produktu:</label>
+                        <input type="text" class="form-control" id="product-quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-picture" class="col-form-label">Vlozit Obrazek</label>
+                        <div id="dropZone">
+                            <h1>Drag & Drop Files...</h1>
+                            <input type="file" id="fileupload" name="attachments[]" multiple>
+                        </div>
+                        <h1 id="error"></h1><br><br>
+                        <h1 id="progress"></h1><br><br>
+                        <div id="files"></div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button style=" margin-right: 55%" type="button" class="btn btn-danger" data-dismiss="modal">Zatvorit</button>
+                <button  type="button"  onclick="addItem('addNew')"  class="btn btn-success">Vlozit Produkt</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+    <h2>Stranka Admin pre spravu poloziek a pouzivatelov</h2>
+<!--    --><?php //var_dump($items) ?>
+
+
+
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#items" role="tab" aria-controls="nav-home" aria-selected="true">Produkty</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#users" role="tab" aria-controls="nav-profile" aria-selected="false">Pouzivatelia</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="nav-profile" aria-selected="false">Objednavky</a>
+        </div>
+    </nav>
+
+
+
+    <div class="tab-content" id="nav-tabContent">
+        <div id="users" class="tab-pane" role="tabpanel" aria-labelledby="home-tab">
+            <h3 style="margin-top: 20px">Pouzivatelia</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr><th>Email</th><th>Username</th><th>Password</th><th>Phone</th><th>Address</th><th>Post Code</th><th>City</th><th>Delete</th><th>Update</th></tr>
+
+
+                </thead>
+                <tbody>
+<!--                --><?php //foreach ($view->usersDataSet as $usersData) {
+//                    $id = $usersData->getId()  ?>
+                    <tr> <td> </td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                        <td><form  method="post" action="manageAds.php" >
+                                <input type="hidden" name="id"  />
+                                <button name="deleteUser" type="submit" class="btn btn-danger" value="    ">Delete</button>
+                            </form></td><td><form  method="post" action="editUser.php?id="" >
+                                <input type="hidden" name="id"  />
+                                <button name="editUser" type="submit" class="btn btn-info" value="   ">Edit</button>
+                            </form></td></tr>
+<!--                --><?php //} ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade show active" id="items" role="tabpanel" aria-labelledby="profile-tab">
+            <h3 style="margin-top: 20px; float: left;">Produkty</h3>
+            <!-- Trigger the modal with a button -->
+            <button id="addItemB" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Pridat Produkt</button>
+            <table class="table table-hover">
+                <thead>
+
+                <tr><th>Produkt</th><th>Typ</th><th>Znacka</th><th>Farba</th><th>Velkost</th><th>Cena</th><th>Pocet</th><th>Funkcie</th></tr>
+
+                </thead>
+                <tbody id="itemTable">
+
+                <?php foreach ($items as $item) { ?>
+                   <tr>
+                       <td><?php echo $item->getItemName(); ?></td>
+                       <td><?php echo $item->getItemType(); ?></td>
+                       <td><?php echo $item->getItemBrand(); ?></td>
+                       <td><?php echo $item->getItemColor(); ?></td>
+                       <td><?php echo $item->getItemSize(); ?></td>
+                       <td><?php echo $item->getItemPrice(); ?></td>
+                       <td><?php echo $item->getItemQuantity(); ?></td>
+                       <td><button  type="button"  class="btn btn-primary">Upravit</button>
+                           <button  type="button"  class="btn btn-danger">Vymazat</button>
+                           <button  type="button"  class="btn btn-info">Otvorit</button></td></tr>
+                <?php } ?>
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="profile-tab">
+            <h3 style="margin-top: 20px; float: left;">Objednavky</h3>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>  <!-- End of container div -->
+
+<?php require('View/Template/footer.phtml') ?>
