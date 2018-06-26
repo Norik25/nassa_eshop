@@ -1,26 +1,72 @@
 
-// function getData(start, limit) {
-//     $.ajax({
-//         url: 'admin.php',
-//         method: 'POST',
-//         dataType: 'text',
-//         data: {
-//             key: 'existingData',
-//             start: start,
-//             limit: limit,
-//         },
-//         success: function (response) {
-//             if (response != 'reachedMax') {
-//                 $('#itemTable').append(response);
-//                 start += limit;
-//                 getData(start, limit);
-//             }
-//         }
-//     });
-// }
+$(function() {
+
+    getData(0, 5);
+});
+
+
+function getData(start, limit) {
+    $.ajax({
+        url: 'ajax.php',
+        method: 'POST',
+        dataType: 'text',
+        data: {
+            key: 'existingData',
+            start: start,
+            limit: limit
+        },
+        success: function (response) {
+
+                $('#itemTableBody').append(response);
+                $('#itemTable').DataTable();
+            }
+
+    });
+}
+
+function edit(rowID) {
+
+    $.ajax({
+        url: 'ajax.php',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+            key: 'getRowData',
+            rowID: rowID
+        },
+        success: function (response) {
+            $("#editRowID").val(rowID);
+            $("#product-name").val(response.itemName);
+            $("#product-type").val(response.itemType);
+            $("#product-brand").val(response.itemBrand);
+            $("#product-color").val(response.itemColor);
+            $("#product-size").val(response.itemSize);
+            $("#product-price").val(response.itemPrice);
+            $("#product-quantity").val(response.itemQuantity);
+            $("#myModal").modal('show');
+            $("#manageBtn").attr('value', 'Uloz zmeny').attr('onclick', "addItem('updateRow')");
+        }
+    });
+
+
+
+}
+
+// $(document).ready(function() {
+//     $('#itemTable').DataTable( {
+//         "processing": true,
+//         "serverSide": true,
+//         "ajax": "ajax.php"
+//     } );
+// } );
+
+
+
+
+
 
 /**
- * Adds item to the database when the vlozit produkt button is pressed
+ * Adds item to the database when the Vlozit Produkt' button is pressed
  * @param key
  */
 function addItem(key) {
@@ -32,6 +78,8 @@ function addItem(key) {
     var productSize = $("#product-size");
     var productPrice = $("#product-price");
     var productQuantity = $("#product-quantity");
+    var editRowID = $("#editRowID");
+
 
 
     if (isNotProductInputEmpty(productName) && isNotProductInputEmpty(productType) && isNotProductInputEmpty(productBrand) &&
@@ -49,7 +97,8 @@ function addItem(key) {
                 color: productColor.val(),
                 size: productSize.val(),
                 price: productPrice.val(),
-                quantity: productQuantity.val()
+                quantity: productQuantity.val(),
+                rowID: editRowID.val()
             }, 
             success: function (response) {
                 alert(response);
@@ -59,6 +108,11 @@ function addItem(key) {
 
 }
 
+/**
+ * Notifies the user if the input from is empty
+ * @param caller
+ * @returns {boolean}
+ */
 function isNotProductInputEmpty(caller) {
     if (caller.val() === '' || caller.value === null) {
         caller.css('border', '1px solid red');

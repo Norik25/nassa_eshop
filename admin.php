@@ -1,12 +1,77 @@
 <?php
 
 require_once ('Model/ItemsDataSet.php');
+require_once ('Model/Database.php');
 
 $view = new stdClass();
 $view->pageTitle = 'Admin';
 
+$id = 14;
+
 $itemDataObject = new ItemsDataSet();
 $items = $itemDataObject->fetchAllData();
+$itemsById = $itemDataObject->getItemsByID($id);
+$it = $itemsById[0]->getItemName();
+
+echo $it;
+
+//echo var_dump($items);
+//$itemData = $itemDataObject->getDataByLimit(0, 10);
+
+// TEST ------------->>
+
+//
+//$dbInstance = Database::getInstance();
+//
+//$dbHandle = $dbInstance->getdbConnection();
+//
+//
+//
+//
+//$limit = 5;
+//$start = 0;
+//
+//$sqlQuery = "SELECT * FROM NASSA_items LIMIT :start, :limit";
+//
+//$statement = $dbHandle->prepare($sqlQuery); //prepare statement
+//
+//
+//$statement->bindParam(':start', $start, PDO::PARAM_INT);
+//$statement->bindParam(':limit', $limit, PDO::PARAM_INT);
+//$statement->execute();
+//
+//
+//
+//
+//if ($statement->rowCount() > 0) {
+//    while ($row = $statement->fetch()) {
+//        echo $row['item_name'];
+//    }
+//} else {
+//    echo 's g w';
+//}
+
+//$dataSet = [];
+//
+//while ($row = $statement->fetch()) {
+//    $dataSet[] = new ItemsData($row);
+//}
+//echo var_dump($dataSet);
+
+
+
+
+
+
+
+
+
+//TEST ------------------------->>>
+
+
+
+
+
 
 
 if (isset($_FILES['attachments'])) {
