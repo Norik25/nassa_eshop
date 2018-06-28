@@ -1,8 +1,23 @@
 
 $(function() {
 
+    $("#myModal").on('hidden.bs.modal', function () {
+        $("#product-name").val("");
+        $("#product-type").val("");
+        $("#product-brand").val("");
+        $("#product-color").val("");
+        $("#product-size").val("");
+        $("#product-price").val("");
+        $("#product-quantity").val("");
+        $("#editRowID").val(0);
+        $("#manageBtn").attr('value', 'Pridat Produkt').attr('onclick', "addItem('addNew')");
+
+    })
+
     getData(0, 5);
 });
+
+
 
 
 function getData(start, limit) {
@@ -24,7 +39,27 @@ function getData(start, limit) {
     });
 }
 
-function edit(rowID) {
+function deleteItem(rowID) {
+
+    if (confirm('Naozaj chcete odstranit produkt?')) {
+        $.ajax({
+            url: 'ajax.php',
+            method: 'POST',
+            dataType: 'text',
+            data: {
+                key: 'deleteRow',
+                rowID: rowID
+            },
+            success: function (response) {
+                $("#item_" + rowID).parent().remove();
+                alert(response);
+            }
+        });
+    }
+
+}
+
+function editItem(rowID) {
 
     $.ajax({
         url: 'ajax.php',
@@ -35,6 +70,7 @@ function edit(rowID) {
             rowID: rowID
         },
         success: function (response) {
+            fileUploader();
             $("#editRowID").val(rowID);
             $("#product-name").val(response.itemName);
             $("#product-type").val(response.itemType);
@@ -45,6 +81,8 @@ function edit(rowID) {
             $("#product-quantity").val(response.itemQuantity);
             $("#myModal").modal('show');
             $("#manageBtn").attr('value', 'Uloz zmeny').attr('onclick', "addItem('updateRow')");
+
+
         }
     });
 
@@ -101,7 +139,22 @@ function addItem(key) {
                 rowID: editRowID.val()
             }, 
             success: function (response) {
-                alert(response);
+                if (response != 'Produkt bol uspesne upraveny.') {
+                    alert(response);
+                } else {
+                    fileUploader();
+                    // $("#item_"+editRowID.val()).html(name.val());
+                    productName.val('');
+                    productType.val('');
+                    productBrand.val('');
+                    productColor.val('');
+                    productSize.val('');
+                    productPrice.val('');
+                    productQuantity.val('');
+                    $("#myModal").modal('hide');
+                    $("#manageBtn").attr('value', 'Pridat Produkt').attr('onclick', "addItem('addNew')");
+                }
+
             }
         });
     }
@@ -165,4 +218,4 @@ function fileUploader() {
         });
     });
 }
-fileUploader();
+

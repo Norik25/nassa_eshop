@@ -14,7 +14,7 @@
                 <h4 class="modal-title">Pridat Produkt</h4>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="product-name" class="col-form-label">Meno Produktu:</label>
                         <input type="text" class="form-control" id="product-name">
@@ -48,7 +48,7 @@
                         <label for="product-picture" class="col-form-label">Vlozit Obrazek</label>
                         <div id="dropZone">
                             <h1>Drag & Drop Files...</h1>
-                            <input type="file" id="fileupload" name="attachments[]" multiple>
+                            <input type="file" id="fileupload" name="attachment">
                         </div>
                         <h1 id="error"></h1><br><br>
                         <h1 id="progress"></h1><br><br>

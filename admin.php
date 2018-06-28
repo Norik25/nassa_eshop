@@ -11,9 +11,9 @@ $id = 14;
 $itemDataObject = new ItemsDataSet();
 $items = $itemDataObject->fetchAllData();
 $itemsById = $itemDataObject->getItemsByID($id);
-$it = $itemsById[0]->getItemName();
-
-echo $it;
+//$it = $itemsById[0]->getItemName();
+//
+//echo $it;
 
 //echo var_dump($items);
 //$itemData = $itemDataObject->getDataByLimit(0, 10);

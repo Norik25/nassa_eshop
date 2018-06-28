@@ -43,6 +43,17 @@ require_once ('Model/ItemsDataSet.php');
 
     }
 
+        if ($_POST['key'] == 'deleteRow') {
+            $iDRow = $_POST['rowID'];
+            $deleteQuery = "DELETE FROM NASSA_items WHERE item_id = :rowID";
+            $stmt = $dbConnection->prepare($deleteQuery);
+            $stmt->bindParam(':rowID', $iDRow, PDO::PARAM_STR);
+            if ($stmt->execute()) {
+                exit("Vas produkt byl odstranen!");
+            }
+
+        }
+
     if ($_POST['key'] == 'existingData') {
 
         $start = $_POST['start'];
@@ -79,8 +90,8 @@ require_once ('Model/ItemsDataSet.php');
                     <td>'. $row['item_price'] .'</td>
                     <td>'. $row['item_quantity'] .'</td>
                     <td>
-                    <button  type="button" onclick="edit(' . $row['item_id'] . ')" class="btn btn-primary">Upravit</button>
-                    <button  type="button" onclick="delete(' . $row['item_id'] . ')" class="btn btn-danger">Vymazat</button>
+                    <button  type="button" onclick="editItem(' . $row['item_id'] . ')" class="btn btn-primary">Upravit</button>
+                    <button  type="button" onclick="deleteItem(' . $row['item_id'] . ')" class="btn btn-danger">Vymazat</button>
                     </td>
                 </tr>
                 ';
@@ -134,12 +145,13 @@ require_once ('Model/ItemsDataSet.php');
             $stmt->bindParam(':productImg', $productImg, PDO::PARAM_STR);
 
             if ($stmt->execute()) {
-                exit('success');
+                exit('Produkt bol uspesne upraveny.');
             } else {
                 exit('Error: ' . var_dump($stmt->errorInfo()) );
             }
-
         }
+
+
         //adding item to the database
         if ($_POST['key'] == 'addNew') {
             if (!empty($itemDataSet)) {
