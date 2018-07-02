@@ -1,6 +1,8 @@
 
 $(function() {
 
+    fileUploader();
+
     $("#myModal").on('hidden.bs.modal', function () {
         $("#product-name").val("");
         $("#product-type").val("");
@@ -11,6 +13,8 @@ $(function() {
         $("#product-quantity").val("");
         $("#editRowID").val(0);
         $("#manageBtn").attr('value', 'Pridat Produkt').attr('onclick', "addItem('addNew')");
+        $("#fileupload").val("");
+
 
     })
 
@@ -32,9 +36,9 @@ function getData(start, limit) {
         },
         success: function (response) {
 
-                $('#itemTableBody').append(response);
-                $('#itemTable').DataTable();
-            }
+            $('#itemTableBody').append(response);
+            $('#itemTable').DataTable();
+        }
 
     });
 }
@@ -70,7 +74,7 @@ function editItem(rowID) {
             rowID: rowID
         },
         success: function (response) {
-            fileUploader();
+            // fileUploader();
             $("#editRowID").val(rowID);
             $("#product-name").val(response.itemName);
             $("#product-type").val(response.itemType);
@@ -117,6 +121,7 @@ function addItem(key) {
     var productPrice = $("#product-price");
     var productQuantity = $("#product-quantity");
     var editRowID = $("#editRowID");
+    var pic = $("#fileupload");
 
 
 
@@ -136,13 +141,15 @@ function addItem(key) {
                 size: productSize.val(),
                 price: productPrice.val(),
                 quantity: productQuantity.val(),
-                rowID: editRowID.val()
-            }, 
+                rowID: editRowID.val(),
+                pic: pic.val()
+
+            },
             success: function (response) {
                 if (response != 'Produkt bol uspesne upraveny.') {
                     alert(response);
                 } else {
-                    fileUploader();
+
                     // $("#item_"+editRowID.val()).html(name.val());
                     productName.val('');
                     productType.val('');
@@ -159,6 +166,25 @@ function addItem(key) {
         });
     }
 
+}
+
+/**
+ * Preview of the picture
+ * @param input
+ */
+
+function readImg(input) {
+    if (input.files && input.files[0]) {
+        input.files[0].name = Math.random() + input.files[0].name;
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#files').fadeIn();
+            console.log(input.files[0].name);
+            $('#picPrew').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 
 /**
@@ -181,15 +207,18 @@ function isNotProductInputEmpty(caller) {
  */
 function fileUploader() {
     $(function () {
-        var files = $('#files');
+        var files = $("#files");
 
         $('#fileupload').fileupload({
             url: 'ajax.php',
             dropZone: '#dropZone',
             dataType: 'json',
+            replaceFileInput:false,
             autoUpload: false
+
         }).on('fileuploadadd', function (e, data) {
             var fileTypeAllowed = /.\.(gif|jpg|png|jpeg)$/i;
+            // console.log(data.originalFiles[0]['name']);
             var fileName = data.originalFiles[0]['name'];
             var fileSize = data.originalFiles[0]['size'];
 
@@ -199,22 +228,26 @@ function fileUploader() {
             else if (fileSize > 500000) {
                 $('#error').html('Tvoj obrazok je prilis velky. Max velkost obrazku je 500KB');
             } else {
-                $('#error').html('');
-                data.submit();
+                $('#error').html("");
+            readImg(data);
+
+            $("#addImage").on('click', function () {
+                    data.submit();
+            });
             }
         }).on('fileuploaddone', function (e, data) {
             var status = data.jqXHR.responseJSON.status;
             var msg = data.jqXHR.responseJSON.msg;
 
-            if (statu == 1) {
+            if (status == 1) {
                 var path = data.jqXHR.responseJSON.path;
-                $("#files").fadeIn().append('<p><img style="width: 30px; height: 20px;" src="'+path+'" /></p>');
+                // $("#files").fadeIn().append('<p><img style="width: 100px; height: 75px;" src="'+path+'" /></p>');
+                $("#picAdd").hide();
+                path = "";
+
             } else {
                 $('#error').html(msg);
             }
-        }).on('fileuploadprogressall', function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-            $('#progress').html('Spracovano: ' + progress + '%');
         });
     });
 }

@@ -15,85 +15,117 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row"><a href="Pics/pic1.jpg"><img src="Pics/pic1.jpg" width="50px" height="30px"></a></th>
-            <td>SHOT</td>
-            <form>
-            <td><div class="form-group">
-                    <select class="custom-select" required>
-                        <option value="">vyberte barvu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                </div></td>
-            <td><div class="form-group">
-                    <select class="custom-select" required>
-                        <option value="">vyberte velikost</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                </div></td>
-            </form>
-            <td>@mdo</td>
-            <td><input maxlength="3" style="width: 35px"></td>
-            <td><button type="button" class="btn btn-success">Pridat</button><button type="button" class="btn btn-danger" style="margin-left: 30px">Vymazat</button></td>
-        </tr>
-        <tr>
-            <th scope="row"><img src="Pics/pic1.jpg" width="50px" height="30px"></th>
-            <td>WIRE Carbon Vernice</td>
-            <td><div class="form-group">
-                    <select class="custom-select" required>
-                        <option value="">vyberte barvu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                </div></td>
-            <td><div class="form-group">
-                    <select class="custom-select" required>
-                        <option value="">vyberte velikost</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                </div></td>
-            <td>@mdo</td>
-            <td><input maxlength="3" style="width: 35px"></td>
-            <td><button type="button" class="btn btn-success">Pridat</button><button type="button" class="btn btn-danger" style="margin-left: 30px">Vymazat</button></td>
-        </tr>
-        <tr>
-            <th scope="row"><img src="Pics/pic1.jpg" width="50px" height="30px"></th>
-            <td>ERGO 4 CC</td>
-            <td><div class="form-group">
-                    <select class="custom-select" required>
-                        <option value="">vyberte barvu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                </div></td>
-            <td>
-                <div class="form-group">
-                    <select class="custom-select" required>
-                        <option value="">vyberte velikost</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                </div>
-            </td>
-            <td>@mdo</td>
-            <td><input maxlength="3" style="width: 35px"></td>
-            <td><button type="button" class="btn btn-success">Pridat</button><button type="button" class="btn btn-danger" style="margin-left: 30px">Vymazat</button></td>
-        </tr>
+        <?php foreach ($items as $item) { ?>
+
+            <tr>
+                <th scope="row"><a href="uploads/<?php echo $item->getItemImage()?>"><img src="uploads/<?php echo $item->getItemImage()?>" width="50px" height="30px"></a></th>
+                <td><?php echo $item->getItemName()?></td>
+                <form>
+                    <td><div class="form-group">
+                            <select class="custom-select" required>
+                                <option value="">vyberte barvu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <div class="invalid-feedback">Example invalid custom select feedback</div>
+                        </div></td>
+                    <td><div class="form-group">
+                            <select class="custom-select" required>
+                                <option value="">vyberte velikost</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <div class="invalid-feedback">Example invalid custom select feedback</div>
+                        </div></td>
+                </form>
+                <td><?php echo $item->getItemQuantity()?></td>
+                <td><input maxlength="3" style="width: 35px"></td>
+                <td><button type="button" class="btn btn-success">Pridat</button><button type="button" class="btn btn-danger" style="margin-left: 30px">Vymazat</button></td>
+            </tr>
+
+        <?php } ?>
+
+<!--        <tr>-->
+<!--            <th scope="row"><a href="Pics/pic1.jpg"><img src="Pics/pic1.jpg" width="50px" height="30px"></a></th>-->
+<!--            <td>SHOT</td>-->
+<!--            <form>-->
+<!--            <td><div class="form-group">-->
+<!--                    <select class="custom-select" required>-->
+<!--                        <option value="">vyberte barvu</option>-->
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+<!--                    </select>-->
+<!--                    <div class="invalid-feedback">Example invalid custom select feedback</div>-->
+<!--                </div></td>-->
+<!--            <td><div class="form-group">-->
+<!--                    <select class="custom-select" required>-->
+<!--                        <option value="">vyberte velikost</option>-->
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+<!--                    </select>-->
+<!--                    <div class="invalid-feedback">Example invalid custom select feedback</div>-->
+<!--                </div></td>-->
+<!--            </form>-->
+<!--            <td>@mdo</td>-->
+<!--            <td><input maxlength="3" style="width: 35px"></td>-->
+<!--            <td><button type="button" class="btn btn-success">Pridat</button><button type="button" class="btn btn-danger" style="margin-left: 30px">Vymazat</button></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row"><img src="Pics/pic1.jpg" width="50px" height="30px"></th>-->
+<!--            <td>WIRE Carbon Vernice</td>-->
+<!--            <td><div class="form-group">-->
+<!--                    <select class="custom-select" required>-->
+<!--                        <option value="">vyberte barvu</option>-->
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+<!--                    </select>-->
+<!--                    <div class="invalid-feedback">Example invalid custom select feedback</div>-->
+<!--                </div></td>-->
+<!--            <td><div class="form-group">-->
+<!--                    <select class="custom-select" required>-->
+<!--                        <option value="">vyberte velikost</option>-->
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+<!--                    </select>-->
+<!--                    <div class="invalid-feedback">Example invalid custom select feedback</div>-->
+<!--                </div></td>-->
+<!--            <td>@mdo</td>-->
+<!--            <td><input maxlength="3" style="width: 35px"></td>-->
+<!--            <td><button type="button" class="btn btn-success">Pridat</button><button type="button" class="btn btn-danger" style="margin-left: 30px">Vymazat</button></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row"><img src="Pics/pic1.jpg" width="50px" height="30px"></th>-->
+<!--            <td>ERGO 4 CC</td>-->
+<!--            <td><div class="form-group">-->
+<!--                    <select class="custom-select" required>-->
+<!--                        <option value="">vyberte barvu</option>-->
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+<!--                    </select>-->
+<!--                    <div class="invalid-feedback">Example invalid custom select feedback</div>-->
+<!--                </div></td>-->
+<!--            <td>-->
+<!--                <div class="form-group">-->
+<!--                    <select class="custom-select" required>-->
+<!--                        <option value="">vyberte velikost</option>-->
+<!--                        <option value="1">One</option>-->
+<!--                        <option value="2">Two</option>-->
+<!--                        <option value="3">Three</option>-->
+<!--                    </select>-->
+<!--                    <div class="invalid-feedback">Example invalid custom select feedback</div>-->
+<!--                </div>-->
+<!--            </td>-->
+<!--            <td>@mdo</td>-->
+<!--            <td><input maxlength="3" style="width: 35px"></td>-->
+<!--            <td><button type="button" class="btn btn-success">Pridat</button><button type="button" class="btn btn-danger" style="margin-left: 30px">Vymazat</button></td>-->
+<!--        </tr>-->
         </tbody>
     </table>
 

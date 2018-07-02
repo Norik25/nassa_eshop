@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0fa4f040-c016-4052-8b79-d7af91a91264" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSS/myStyle.css" afterPath="$PROJECT_DIR$/CSS/myStyle.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS/myScript.js" afterPath="$PROJECT_DIR$/JS/myScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/ItemsData.php" afterPath="$PROJECT_DIR$/Model/ItemsData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/ItemsDataSet.php" afterPath="$PROJECT_DIR$/Model/ItemsDataSet.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/admin.phtml" afterPath="$PROJECT_DIR$/View/admin.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/index.phtml" afterPath="$PROJECT_DIR$/View/index.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin.php" afterPath="$PROJECT_DIR$/admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax.php" afterPath="$PROJECT_DIR$/ajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,38 +25,67 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/index.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+              <folding>
+                <marker date="1530457269055" expanded="true" signature="919:2060" ph="..." />
+                <marker date="1530457269055" expanded="true" signature="944:1476" ph="..." />
+                <marker date="1530457269055" expanded="true" signature="968:1471" ph="..." />
+                <marker date="1530457269055" expanded="true" signature="1036:1337" ph="..." />
+                <marker date="1530457269055" expanded="true" signature="1501:2036" ph="..." />
+                <marker date="1530457269055" expanded="true" signature="1525:2031" ph="..." />
+                <marker date="1530457269055" expanded="true" signature="1593:1897" ph="..." />
+                <marker date="1530457269055" expanded="false" signature="3812:3823" ph="..." />
+                <marker date="1530457269055" expanded="false" signature="3967:3984" ph="..." />
+                <marker date="1530457269055" expanded="false" signature="5373:5384" ph="..." />
+                <marker date="1530457269055" expanded="false" signature="5528:5545" ph="..." />
+                <marker date="1530457269055" expanded="false" signature="6968:6979" ph="..." />
+                <marker date="1530457269055" expanded="false" signature="7123:7140" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="39" column="68" lean-forward="true" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
+            <state relative-caret-position="816">
+              <caret line="161" column="150" lean-forward="true" selection-start-line="161" selection-start-column="150" selection-end-line="161" selection-end-column="150" />
               <folding>
-                <marker date="1530199490034" expanded="true" signature="394:425" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1530199490034" expanded="true" signature="394:442" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1530199490034" expanded="true" signature="1395:1441" ph="DELETE FROM " />
-                <marker date="1530199490034" expanded="true" signature="1859:1884" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1530199490034" expanded="true" signature="1859:1885" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1530199490034" expanded="true" signature="2400:2467" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2400:2476" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2400:2477" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2400:2553" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2400:2554" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2400:2714" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2400:3182" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2877:2935" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2877:2940" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2877:2963" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="2877:3160" ph="..." />
-                <marker date="1530199490034" expanded="true" signature="3788:3910" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1530199490034" expanded="true" signature="4227:4518" ph="UPDATE NASSA... " />
-                <marker date="1530199490034" expanded="true" signature="6415:6689" ph="INSERT INTO NASSA_items... " />
+                <marker date="1530435442826" expanded="true" signature="776:855" ph="INSERT INTO NASSA_images... " />
+                <marker date="1530435442826" expanded="true" signature="1220:1251" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530435442826" expanded="true" signature="1220:1268" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530435442826" expanded="true" signature="2273:2319" ph="DELETE FROM " />
+                <marker date="1530435442826" expanded="true" signature="2713:2738" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530435442826" expanded="true" signature="2713:2739" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530435442826" expanded="true" signature="3254:3306" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:3405" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:3408" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:3414" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:3415" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:3491" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:3492" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:3652" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3254:4120" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3340:3365" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3815:3873" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3815:3878" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3815:3901" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="3815:4098" ph="..." />
+                <marker date="1530435442826" expanded="true" signature="4712:4834" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530435442826" expanded="true" signature="5135:5371" ph="UPDATE NASSA... " />
+                <marker date="1530435442826" expanded="true" signature="5135:5426" ph="UPDATE NASSA... " />
+                <marker date="1530435442826" expanded="true" signature="7237:7511" ph="INSERT INTO NASSA_items... " />
               </folding>
             </state>
           </provider>
@@ -60,8 +94,8 @@
       <file leaf-file-name="ItemsData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/ItemsData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="57" column="34" lean-forward="true" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
+            <state relative-caret-position="289">
+              <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -70,11 +104,11 @@
       <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="15" selection-end-column="11" />
+            <state relative-caret-position="170">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="41" />
               <folding>
-                <marker date="1530199433929" expanded="true" signature="589:629" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1530199433929" expanded="true" signature="589:635" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530431654049" expanded="true" signature="709:749" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530431654049" expanded="true" signature="709:755" ph="SELECT * FRO... NASSA_items" />
               </folding>
             </state>
           </provider>
@@ -83,32 +117,37 @@
       <file leaf-file-name="ItemsDataSet.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/ItemsDataSet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="77" column="69" lean-forward="true" selection-start-line="77" selection-start-column="69" selection-end-line="77" selection-end-column="69" />
+            <state relative-caret-position="510">
+              <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
               <folding>
-                <marker date="1529941870449" expanded="true" signature="536:561" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1529941870449" expanded="true" signature="1393:1439" ph="SELECT * FRO... NASSA_items" />
-                <marker date="1529941870449" expanded="true" signature="1909:1955" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530458689075" expanded="true" signature="536:561" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530458689075" expanded="true" signature="894:927" ph="SELECT item_... NASSA_items" />
+                <marker date="1530458689075" expanded="true" signature="1745:1791" ph="SELECT * FRO... NASSA_items" />
+                <marker date="1530458689075" expanded="true" signature="2261:2307" ph="SELECT * FRO... NASSA_items" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.phtml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.phtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/View/admin.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="61" column="51" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="51" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="54" column="144" lean-forward="true" selection-start-line="54" selection-start-column="144" selection-end-line="54" selection-end-column="144" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#center#0;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#center#1;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/Template/footer.phtml">
+      <file leaf-file-name="myStyle.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CSS/myStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="95" lean-forward="false" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
+            <state relative-caret-position="425">
+              <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -117,21 +156,11 @@
       <file leaf-file-name="myScript.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JS/myScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+            <state relative-caret-position="-896">
+              <caret line="159" column="44" lean-forward="true" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
               <folding>
-                <marker date="1530198380994" expanded="true" signature="5987:6013" ph="..." />
+                <marker date="1530434447977" expanded="true" signature="6729:6756" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/Template/header.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -148,6 +177,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>edit</find>
+      <find>readImg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,20 +187,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Controller/index.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Model/Database.php" />
-        <option value="$PROJECT_DIR$/Model/ItemsData.php" />
         <option value="$PROJECT_DIR$/extraItems.php" />
         <option value="$PROJECT_DIR$/View/extraItems.phtml" />
-        <option value="$PROJECT_DIR$/View/index.phtml" />
-        <option value="$PROJECT_DIR$/CSS/myStyle.css" />
-        <option value="$PROJECT_DIR$/View/Template/footer.phtml" />
         <option value="$PROJECT_DIR$/View/Template/header.phtml" />
-        <option value="$PROJECT_DIR$/Model/ItemsDataSet.php" />
-        <option value="$PROJECT_DIR$/View/admin.phtml" />
-        <option value="$PROJECT_DIR$/JS/myScript.js" />
+        <option value="$PROJECT_DIR$/View/Template/footer.phtml" />
+        <option value="$PROJECT_DIR$/CSS/myStyle.css" />
         <option value="$PROJECT_DIR$/admin.php" />
+        <option value="$PROJECT_DIR$/JS/myScript.js" />
+        <option value="$PROJECT_DIR$/Model/ItemsData.php" />
         <option value="$PROJECT_DIR$/ajax.php" />
+        <option value="$PROJECT_DIR$/View/index.phtml" />
+        <option value="$PROJECT_DIR$/Model/ItemsDataSet.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/View/admin.phtml" />
       </list>
     </option>
   </component>
@@ -189,7 +219,6 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -221,17 +250,6 @@
             <path>
               <item name="NassaEshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NassaEshop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CSS" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="NassaEshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NassaEshop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CSS" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data_table_css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="NassaEshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NassaEshop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="JS" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -242,13 +260,12 @@
             <path>
               <item name="NassaEshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NassaEshop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="NassaEshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NassaEshop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Template" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -312,25 +329,25 @@
       <workItem from="1529337130813" duration="10348000" />
       <workItem from="1529398149478" duration="8127000" />
       <workItem from="1529418283748" duration="3747000" />
-      <workItem from="1529737706117" duration="49049000" />
+      <workItem from="1529737706117" duration="80504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148397000" />
+    <option name="totallyTimeSpent" value="179852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.021321962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08635394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28798187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28730512" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -351,9 +368,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28798187" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.021321962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28730512" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08635394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -387,25 +404,30 @@
         <state relative-caret-position="1462">
           <caret line="86" column="69" lean-forward="true" selection-start-line="86" selection-start-column="69" selection-end-line="86" selection-end-column="69" />
           <folding>
-            <marker date="1530199490034" expanded="true" signature="394:425" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="394:442" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1395:1441" ph="DELETE FROM " />
-            <marker date="1530199490034" expanded="true" signature="1859:1884" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1859:1885" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="2400:2467" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2476" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2477" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2553" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2554" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2714" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:3182" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2935" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2940" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2963" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:3160" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="3788:3910" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="4227:4518" ph="UPDATE NASSA... " />
-            <marker date="1530199490034" expanded="true" signature="6415:6689" ph="INSERT INTO NASSA_items... " />
+            <marker date="1530435442826" expanded="true" signature="776:855" ph="INSERT INTO NASSA_images... " />
+            <marker date="1530435442826" expanded="true" signature="1220:1251" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="1220:1268" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2273:2319" ph="DELETE FROM " />
+            <marker date="1530435442826" expanded="true" signature="2713:2738" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2713:2739" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="3254:3306" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3405" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3408" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3414" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3415" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3491" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3492" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3652" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:4120" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3340:3365" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3873" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3878" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3901" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:4098" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="4712:4834" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="5135:5371" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="5135:5426" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="7237:7511" ph="INSERT INTO NASSA_items... " />
           </folding>
         </state>
       </provider>
@@ -426,25 +448,30 @@
         <state relative-caret-position="510">
           <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
           <folding>
-            <marker date="1530199490034" expanded="true" signature="394:425" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="394:442" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1395:1441" ph="DELETE FROM " />
-            <marker date="1530199490034" expanded="true" signature="1859:1884" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1859:1885" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="2400:2467" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2476" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2477" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2553" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2554" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2714" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:3182" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2935" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2940" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2963" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:3160" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="3788:3910" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="4227:4518" ph="UPDATE NASSA... " />
-            <marker date="1530199490034" expanded="true" signature="6415:6689" ph="INSERT INTO NASSA_items... " />
+            <marker date="1530435442826" expanded="true" signature="776:855" ph="INSERT INTO NASSA_images... " />
+            <marker date="1530435442826" expanded="true" signature="1220:1251" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="1220:1268" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2273:2319" ph="DELETE FROM " />
+            <marker date="1530435442826" expanded="true" signature="2713:2738" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2713:2739" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="3254:3306" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3405" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3408" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3414" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3415" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3491" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3492" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3652" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:4120" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3340:3365" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3873" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3878" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3901" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:4098" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="4712:4834" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="5135:5371" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="5135:5426" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="7237:7511" ph="INSERT INTO NASSA_items... " />
           </folding>
         </state>
       </provider>
@@ -468,25 +495,30 @@
         <state relative-caret-position="799">
           <caret line="52" column="68" lean-forward="false" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
           <folding>
-            <marker date="1530199490034" expanded="true" signature="394:425" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="394:442" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1395:1441" ph="DELETE FROM " />
-            <marker date="1530199490034" expanded="true" signature="1859:1884" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1859:1885" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="2400:2467" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2476" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2477" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2553" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2554" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2714" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:3182" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2935" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2940" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2963" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:3160" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="3788:3910" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="4227:4518" ph="UPDATE NASSA... " />
-            <marker date="1530199490034" expanded="true" signature="6415:6689" ph="INSERT INTO NASSA_items... " />
+            <marker date="1530435442826" expanded="true" signature="776:855" ph="INSERT INTO NASSA_images... " />
+            <marker date="1530435442826" expanded="true" signature="1220:1251" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="1220:1268" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2273:2319" ph="DELETE FROM " />
+            <marker date="1530435442826" expanded="true" signature="2713:2738" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2713:2739" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="3254:3306" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3405" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3408" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3414" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3415" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3491" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3492" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3652" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:4120" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3340:3365" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3873" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3878" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3901" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:4098" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="4712:4834" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="5135:5371" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="5135:5426" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="7237:7511" ph="INSERT INTO NASSA_items... " />
           </folding>
         </state>
       </provider>
@@ -510,25 +542,30 @@
         <state relative-caret-position="884">
           <caret line="52" column="68" lean-forward="true" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
           <folding>
-            <marker date="1530199490034" expanded="true" signature="394:425" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="394:442" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1395:1441" ph="DELETE FROM " />
-            <marker date="1530199490034" expanded="true" signature="1859:1884" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1859:1885" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="2400:2467" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2476" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2477" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2553" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2554" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2714" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:3182" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2935" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2940" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2963" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:3160" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="3788:3910" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="4227:4518" ph="UPDATE NASSA... " />
-            <marker date="1530199490034" expanded="true" signature="6415:6689" ph="INSERT INTO NASSA_items... " />
+            <marker date="1530435442826" expanded="true" signature="776:855" ph="INSERT INTO NASSA_images... " />
+            <marker date="1530435442826" expanded="true" signature="1220:1251" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="1220:1268" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2273:2319" ph="DELETE FROM " />
+            <marker date="1530435442826" expanded="true" signature="2713:2738" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2713:2739" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="3254:3306" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3405" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3408" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3414" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3415" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3491" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3492" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3652" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:4120" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3340:3365" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3873" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3878" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3901" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:4098" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="4712:4834" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="5135:5371" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="5135:5426" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="7237:7511" ph="INSERT INTO NASSA_items... " />
           </folding>
         </state>
       </provider>
@@ -541,8 +578,6 @@
     <entry file="file://$PROJECT_DIR$/Model/Database.php" />
     <entry file="file://$PROJECT_DIR$/extraItems.php" />
     <entry file="file://$PROJECT_DIR$/View/extraItems.phtml" />
-    <entry file="file://$PROJECT_DIR$/View/index.phtml" />
-    <entry file="file://$PROJECT_DIR$/CSS/myStyle.css" />
     <entry file="file://$PROJECT_DIR$/CSS/data_table_css/dataTables.bootstrap4.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -559,14 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/Template/header.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -575,87 +602,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/ItemsData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="57" column="34" lean-forward="true" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/ItemsDataSet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="77" column="69" lean-forward="true" selection-start-line="77" selection-start-column="69" selection-end-line="77" selection-end-column="69" />
-          <folding>
-            <marker date="1529941870449" expanded="true" signature="536:561" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1529941870449" expanded="true" signature="1393:1439" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1529941870449" expanded="true" signature="1909:1955" ph="SELECT * FRO... NASSA_items" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/Template/footer.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="95" lean-forward="false" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
+        <state relative-caret-position="425">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/admin.phtml">
+    <entry file="file://$PROJECT_DIR$/CSS/myStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="61" column="51" lean-forward="false" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="51" />
+        <state relative-caret-position="425">
+          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/myScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+        <state relative-caret-position="-896">
+          <caret line="159" column="44" lean-forward="true" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
           <folding>
-            <marker date="1530198380994" expanded="true" signature="5987:6013" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <marker date="1530199433929" expanded="true" signature="589:629" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199433929" expanded="true" signature="589:635" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530434447977" expanded="true" signature="6729:6756" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="39" column="68" lean-forward="true" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
+        <state relative-caret-position="816">
+          <caret line="161" column="150" lean-forward="true" selection-start-line="161" selection-start-column="150" selection-end-line="161" selection-end-column="150" />
           <folding>
-            <marker date="1530199490034" expanded="true" signature="394:425" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="394:442" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1395:1441" ph="DELETE FROM " />
-            <marker date="1530199490034" expanded="true" signature="1859:1884" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="1859:1885" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="2400:2467" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2476" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2477" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2553" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2554" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:2714" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2400:3182" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2935" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2940" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:2963" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="2877:3160" ph="..." />
-            <marker date="1530199490034" expanded="true" signature="3788:3910" ph="SELECT * FRO... NASSA_items" />
-            <marker date="1530199490034" expanded="true" signature="4227:4518" ph="UPDATE NASSA... " />
-            <marker date="1530199490034" expanded="true" signature="6415:6689" ph="INSERT INTO NASSA_items... " />
+            <marker date="1530435442826" expanded="true" signature="776:855" ph="INSERT INTO NASSA_images... " />
+            <marker date="1530435442826" expanded="true" signature="1220:1251" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="1220:1268" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2273:2319" ph="DELETE FROM " />
+            <marker date="1530435442826" expanded="true" signature="2713:2738" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="2713:2739" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="3254:3306" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3405" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3408" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3414" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3415" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3491" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3492" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:3652" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3254:4120" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3340:3365" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3873" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3878" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:3901" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="3815:4098" ph="..." />
+            <marker date="1530435442826" expanded="true" signature="4712:4834" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530435442826" expanded="true" signature="5135:5371" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="5135:5426" ph="UPDATE NASSA... " />
+            <marker date="1530435442826" expanded="true" signature="7237:7511" ph="INSERT INTO NASSA_items... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+          <folding>
+            <marker date="1530457269055" expanded="true" signature="919:2060" ph="..." />
+            <marker date="1530457269055" expanded="true" signature="944:1476" ph="..." />
+            <marker date="1530457269055" expanded="true" signature="968:1471" ph="..." />
+            <marker date="1530457269055" expanded="true" signature="1036:1337" ph="..." />
+            <marker date="1530457269055" expanded="true" signature="1501:2036" ph="..." />
+            <marker date="1530457269055" expanded="true" signature="1525:2031" ph="..." />
+            <marker date="1530457269055" expanded="true" signature="1593:1897" ph="..." />
+            <marker date="1530457269055" expanded="false" signature="3812:3823" ph="..." />
+            <marker date="1530457269055" expanded="false" signature="3967:3984" ph="..." />
+            <marker date="1530457269055" expanded="false" signature="5373:5384" ph="..." />
+            <marker date="1530457269055" expanded="false" signature="5528:5545" ph="..." />
+            <marker date="1530457269055" expanded="false" signature="6968:6979" ph="..." />
+            <marker date="1530457269055" expanded="false" signature="7123:7140" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/ItemsData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/ItemsDataSet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+          <folding>
+            <marker date="1530458689075" expanded="true" signature="536:561" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530458689075" expanded="true" signature="894:927" ph="SELECT item_... NASSA_items" />
+            <marker date="1530458689075" expanded="true" signature="1745:1791" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530458689075" expanded="true" signature="2261:2307" ph="SELECT * FRO... NASSA_items" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="41" />
+          <folding>
+            <marker date="1530431654049" expanded="true" signature="709:749" ph="SELECT * FRO... NASSA_items" />
+            <marker date="1530431654049" expanded="true" signature="709:755" ph="SELECT * FRO... NASSA_items" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/admin.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="54" column="144" lean-forward="true" selection-start-line="54" selection-start-column="144" selection-end-line="54" selection-end-column="144" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#center#0;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#center#1;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

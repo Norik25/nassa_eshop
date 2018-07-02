@@ -37,6 +37,21 @@ class ItemsDataSet
         return $dataSet;
     }
 
+    public function getAllItemNames() {
+        $sqlQuery = 'SELECT item_name FROM NASSA_items';
+
+        $statement = $this->_dbHandle->prepare($sqlQuery); //prepare statement
+        $statement->execute();
+
+        $dataSet = [];
+
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+
+
     /**
      * Receives the query as an argument and gets data by that MySql query
      * @param $query of Type String

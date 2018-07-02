@@ -18,6 +18,15 @@ class ItemsData
         $this->itemBrand = $dbRow['item_brand'];
         $this->itemSize = $dbRow['item_size'];
         $this->itemQuantity = $dbRow['item_quantity'];
+        $this->itemImage = $dbRow['item_img'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getItemImage()
+    {
+        return $this->itemImage;
     }
 
     /**

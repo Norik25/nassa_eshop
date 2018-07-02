@@ -4,72 +4,76 @@
 <div class="container" style="margin-top: 100px;">
 
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Pridat Produkt</h4>
-            </div>
-            <div class="modal-body">
-                <form method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="product-name" class="col-form-label">Meno Produktu:</label>
-                        <input type="text" class="form-control" id="product-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="product-type" class="col-form-label">Typ Produktu:</label>
-                        <input type="text" class="form-control" id="product-type">
-                    </div>
-                    <div class="form-group">
-                        <label for="product-brand" class="col-form-label">Znacka Produktu:</label>
-                        <input type="text" class="form-control" id="product-brand">
-                    </div>
-                    <div class="form-group">
-                        <label for="product-color" class="col-form-label">Farba Produktu:</label>
-                        <input type="text" class="form-control" id="product-color">
-                    </div>
-                    <div class="form-group">
-                        <label for="product-size" class="col-form-label">Velikost Produktu:</label>
-                        <input type="text" class="form-control" id="product-size">
-                    </div>
-                    <div class="form-group">
-                        <label for="product-price" class="col-form-label">Cena Produktu:</label>
-                        <input type="text" class="form-control" id="product-price">
-                    </div>
-                    <div class="form-group">
-                        <label for="product-quantity" class="col-form-label">Kvantita Produktu:</label>
-                        <input type="text" class="form-control" id="product-quantity">
-                    </div>
-                    <input type="hidden" id="editRowID" value="0">
-                    <div class="form-group">
-                        <label for="product-picture" class="col-form-label">Vlozit Obrazek</label>
-                        <div id="dropZone">
-                            <h1>Drag & Drop Files...</h1>
-                            <input type="file" id="fileupload" name="attachment">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pridat Produkt</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="product-name" class="col-form-label">Meno Produktu:</label>
+                            <input type="text" class="form-control" id="product-name">
                         </div>
-                        <h1 id="error"></h1><br><br>
-                        <h1 id="progress"></h1><br><br>
-                        <div id="files"></div>
+                        <div class="form-group">
+                            <label for="product-type" class="col-form-label">Typ Produktu:</label>
+                            <input type="text" class="form-control" id="product-type">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-brand" class="col-form-label">Znacka Produktu:</label>
+                            <input type="text" class="form-control" id="product-brand">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-color" class="col-form-label">Farba Produktu:</label>
+                            <input type="text" class="form-control" id="product-color">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-size" class="col-form-label">Velikost Produktu:</label>
+                            <input type="text" class="form-control" id="product-size">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price" class="col-form-label">Cena Produktu:</label>
+                            <input type="text" class="form-control" id="product-price">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-quantity" class="col-form-label">Kvantita Produktu:</label>
+                            <input type="text" class="form-control" id="product-quantity">
+                        </div>
+                        <input type="hidden" id="editRowID" value="0">
+                        <div id="picAdd" class="form-group">
+                            <label for="product-picture" class="col-form-label">Vlozit Obrazek</label>
+                            <div id="dropZone">
+                                <h1>Drag & Drop Files...</h1>
+                                <input type="file" id="fileupload" name="attachments" style="float: left">
 
-                    </div>
-                </form>
+                            </div>
+                            <center><div id="files"><img id="picPrew" style="width: 100px; height: 75px;" src="" ></div></center>
+                            <center><button type="button" class="btn btn-info" id="addImage" style="margin: 50px">Pridat Image</button></center>
+                            <h1 id="error"></h1><br><br>
+                            <!--                        <h1 id="progress"></h1><br><br>-->
+
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button style=" margin-right: 55%" type="button" class="btn btn-danger" data-dismiss="modal">Zatvorit</button>
+                    <input  type="button" id="manageBtn" onclick="addItem('addNew')" value="Pridat Produkt" class="btn btn-success">
+                </div>
             </div>
-            <div class="modal-footer">
-                <button style=" margin-right: 55%" type="button" class="btn btn-danger" data-dismiss="modal">Zatvorit</button>
-                <input  type="button" id="manageBtn" onclick="addItem('addNew')" value="Pridat Produkt" class="btn btn-success">
-            </div>
+
         </div>
-
     </div>
-</div>
 
 
 
     <h2>Stranka Admin pre spravu poloziek a pouzivatelov</h2>
-<!--    --><?php //var_dump($itemData) ?>
+    <!--    --><?php //var_dump($itemData) ?>
 
 
 
@@ -94,17 +98,17 @@
 
                 </thead>
                 <tbody>
-<!--                --><?php //foreach ($view->usersDataSet as $usersData) {
-//                    $id = $usersData->getId()  ?>
-                    <tr> <td> </td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
-                        <td><form  method="post" action="manageAds.php" >
-                                <input type="hidden" name="id"  />
-                                <button name="deleteUser" type="submit" class="btn btn-danger" value="    ">Delete</button>
-                            </form></td><td><form  method="post" action="editUser.php?id="" >
-                                <input type="hidden" name="id"  />
-                                <button name="editUser" type="submit" class="btn btn-info" value="   ">Edit</button>
-                            </form></td></tr>
-<!--                --><?php //} ?>
+                <!--                --><?php //foreach ($view->usersDataSet as $usersData) {
+                //                    $id = $usersData->getId()  ?>
+                <tr> <td> </td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+                    <td><form  method="post" action="manageAds.php" >
+                            <input type="hidden" name="id"  />
+                            <button name="deleteUser" type="submit" class="btn btn-danger" value="    ">Delete</button>
+                        </form></td><td><form  method="post" action="editUser.php?id="" >
+                        <input type="hidden" name="id"  />
+                        <button name="editUser" type="submit" class="btn btn-info" value="   ">Edit</button>
+                        </form></td></tr>
+                <!--                --><?php //} ?>
                 </tbody>
             </table>
         </div>
@@ -120,22 +124,22 @@
                 </thead>
                 <tbody id="itemTableBody">
 
-<!--                --><?php //foreach ($items as $item) { ?>
-<!--                   <tr>-->
-<!--                       <td><img src=""></td>-->
-<!--                       <td>--><?php //echo $item->getItemName(); ?><!--</td>-->
-<!--                       <td>--><?php //echo $item->getItemType(); ?><!--</td>-->
-<!--                       <td>--><?php //echo $item->getItemBrand(); ?><!--</td>-->
-<!--                       <td>--><?php //echo $item->getItemColor(); ?><!--</td>-->
-<!--                       <td>--><?php //echo $item->getItemSize(); ?><!--</td>-->
-<!--                       <td>--><?php //echo $item->getItemPrice(); ?><!--</td>-->
-<!--                       <td>--><?php //echo $item->getItemQuantity(); ?><!--</td>-->
-<!--                       <td>-->
-<!--                           <button  type="button"  class="btn btn-primary">Upravit</button>-->
-<!--                           <button  type="button"  class="btn btn-danger">Vymazat</button>-->
-<!--                       </td>-->
-<!--                   </tr>-->
-<!--                --><?php //} ?>
+                <!--                --><?php //foreach ($items as $item) { ?>
+                <!--                   <tr>-->
+                <!--                       <td><img src=""></td>-->
+                <!--                       <td>--><?php //echo $item->getItemName(); ?><!--</td>-->
+                <!--                       <td>--><?php //echo $item->getItemType(); ?><!--</td>-->
+                <!--                       <td>--><?php //echo $item->getItemBrand(); ?><!--</td>-->
+                <!--                       <td>--><?php //echo $item->getItemColor(); ?><!--</td>-->
+                <!--                       <td>--><?php //echo $item->getItemSize(); ?><!--</td>-->
+                <!--                       <td>--><?php //echo $item->getItemPrice(); ?><!--</td>-->
+                <!--                       <td>--><?php //echo $item->getItemQuantity(); ?><!--</td>-->
+                <!--                       <td>-->
+                <!--                           <button  type="button"  class="btn btn-primary">Upravit</button>-->
+                <!--                           <button  type="button"  class="btn btn-danger">Vymazat</button>-->
+                <!--                       </td>-->
+                <!--                   </tr>-->
+                <!--                --><?php //} ?>
 
                 </tbody>
 

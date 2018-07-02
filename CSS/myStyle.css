@@ -14,14 +14,13 @@
 }
 
 #dropZone {
-    border: 3px dashed #0088cc;
+    border: 3px dashed black;
     padding: 50px;
     width: 100%;
     margin-top: 20px;
 }
 
 #files {
-    border: 1px dotted #0088cc;
     padding: 20px;
     width: 200px;
     display: none;

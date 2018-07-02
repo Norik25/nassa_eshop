@@ -7,10 +7,16 @@ $view = new stdClass();
 $view->pageTitle = 'Admin';
 
 $id = 14;
-
+$target = "";
 $itemDataObject = new ItemsDataSet();
 $items = $itemDataObject->fetchAllData();
 $itemsById = $itemDataObject->getItemsByID($id);
+
+//if (isset($_FILES['attachments'])) {
+//    $target = basename($_FILES['attachments']['name'][0]);
+//}
+
+
 //$it = $itemsById[0]->getItemName();
 //
 //echo $it;
@@ -18,7 +24,7 @@ $itemsById = $itemDataObject->getItemsByID($id);
 //echo var_dump($items);
 //$itemData = $itemDataObject->getDataByLimit(0, 10);
 
-// TEST ------------->>
+// TEST <<-------------
 
 //
 //$dbInstance = Database::getInstance();
@@ -74,16 +80,16 @@ $itemsById = $itemDataObject->getItemsByID($id);
 
 
 
-if (isset($_FILES['attachments'])) {
-    $msg = "";
-    $targetFile = "uploads/" . basename($_FILES['attachments']['name'][0]);
-    if (file_exists($targetFile))
-        $msg = array("status" => 0, "msg" => "File already exists!");
-    else if (move_uploaded_file($_FILES['attachments']['tmp_name'][0], $targetFile))
-        $msg = array("status" => 1, "msg" => "File Has Been Uploaded", "path" => $targetFile);
-
-    exit(json_encode($msg));
-}
+//if (isset($_FILES['attachments'])) {
+//    $msg = "";
+//    $targetFile = "uploads/" . basename($_FILES['attachments']['name'][0]);
+//    if (file_exists($targetFile))
+//        $msg = array("status" => 0, "msg" => "File already exists!");
+//    else if (move_uploaded_file($_FILES['attachments']['tmp_name'][0], $targetFile))
+//        $msg = array("status" => 1, "msg" => "File Has Been Uploaded", "path" => $targetFile);
+//
+//    exit(json_encode($msg));
+//}
 
 
 
