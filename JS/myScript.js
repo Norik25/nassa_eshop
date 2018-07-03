@@ -14,10 +14,7 @@ $(function() {
         $("#editRowID").val(0);
         $("#manageBtn").attr('value', 'Pridat Produkt').attr('onclick', "addItem('addNew')");
         $("#fileupload").val("");
-
-
-    })
-
+    });
     getData(0, 5);
 });
 
@@ -41,6 +38,36 @@ function getData(start, limit) {
         }
 
     });
+}
+
+
+function addItemToBasket(rowID) {
+
+    $.ajax({
+        url: 'ajax.php',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+            key: 'getRowData',
+            rowID: rowID
+        },
+        success: function (response) {
+            $("#getRowIDIndex").val(rowID);
+            $("#itemSummaryModal").modal('show');
+            $("#cardTitle").text('Nazev produktu: ' + response.itemName);
+            $("#cardItemSize").text('Velikost produktu: '  + response.itemSize);
+            $("#cardItemColor").text('Barva produktu: ' + response.itemColor );
+            $("#cardItemPrice").text('Cena produktu: ' + response.itemPrice );
+            $("#cardItemQuantity").text('Skladem: ' + response.itemQuantity + ' kusů');
+            $("#cardImg").attr('src', 'uploads/' + response.itemImage).attr('alt', response.itemImage);
+
+
+
+        }
+    });
+
+
+
 }
 
 function deleteItem(rowID) {
@@ -229,11 +256,11 @@ function fileUploader() {
                 $('#error').html('Tvoj obrazok je prilis velky. Max velkost obrazku je 500KB');
             } else {
                 $('#error').html("");
-            readImg(data);
+                readImg(data);
 
-            $("#addImage").on('click', function () {
+                $("#addImage").on('click', function () {
                     data.submit();
-            });
+                });
             }
         }).on('fileuploaddone', function (e, data) {
             var status = data.jqXHR.responseJSON.status;
