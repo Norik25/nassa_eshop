@@ -60,11 +60,48 @@ function addItemToBasket(rowID) {
             $("#cardItemPrice").text('Cena produktu: ' + response.itemPrice );
             $("#cardItemQuantity").text('Skladem: ' + response.itemQuantity + ' kusů');
             $("#cardImg").attr('src', 'uploads/' + response.itemImage).attr('alt', response.itemImage);
+            $("#itemToBasketB").attr('onclick', "addItemClick("+ rowID +")");
 
 
 
         }
     });
+
+
+
+}
+
+function addItemClick(rowID) {
+    var enterQuantity = $("#enterQuantity");
+
+    if (isNotProductInputEmpty(enterQuantity)) {
+        $.ajax({
+            url: 'ajax.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                key: 'getRowData',
+                rowID: rowID,
+                qtyInput: enterQuantity.val()
+            },
+            success: function (response) {
+                if (enterQuantity.val() > parseInt(response.itemQuantity)) {
+                    alert("Lutujeme ale zvoleny pocet nieje dostupny. Dostupnych je: " + response.itemQuantity + "kusu.");
+                } else {
+                    $("#itemSummaryModal").modal('hide');
+                    // if ( $("#sideBasket").style.display === "none") {
+                    //     $("#sideBasket").style.display = "block";
+                    // } else {
+                    //     $("#sideBasket").style.display = "none";
+                    // }
+                    $("#sideBasket").append('<p id=" rowID ">Produkt: ' + response.itemName + '</p>');
+
+
+                }
+
+            }
+        });
+    }
 
 
 

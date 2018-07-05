@@ -67,7 +67,10 @@ if (isset($_POST['key'])) {
             'itemImage' => $itemDataSetRow[0]->getItemImage(),
 
         );
+
+
         exit(json_encode($jsonArray));
+
 
     }
 

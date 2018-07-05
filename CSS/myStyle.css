@@ -29,5 +29,17 @@
 #error {
     color: red;
 }
+#sideBasket {
+    float: left;
+    width: inherit;
+    height: 200px;
+    border: 1px solid black;
+    margin-top: -75px;
+    margin-bottom: 25px;
+    overflow-y: scroll;
+    /*display: none;*/
+
+
+}
 
 
