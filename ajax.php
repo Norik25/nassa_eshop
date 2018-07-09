@@ -45,14 +45,11 @@ if (isset($_FILES['attachments'])) {
 
 if (isset($_POST['key'])) {
 
+    /**
+     * Gets ItemData for a particular row from the database and returns it in JSON
+     */
     if ($_POST['key'] == 'getRowData') {
         $rowID = $_POST['rowID'];
-//        $dataRowQuery = "SELECT * FROM NASSA_items WHERE item_id=':rowID'";
-//        $statement = $dbConnection->prepare($dataRowQuery); //prepare statement
-//        $statement->bindParam(':rowID', $rowID, PDO::PARAM_STR);
-//
-//        $rowData = $statement->fetch();
-
         $itemDataObjectRow = new ItemsDataSet();
         $itemDataSetRow = $itemDataObjectRow->getItemsByID($rowID);
 
@@ -67,13 +64,11 @@ if (isset($_POST['key'])) {
             'itemImage' => $itemDataSetRow[0]->getItemImage(),
 
         );
-
-
         exit(json_encode($jsonArray));
-
-
     }
-
+    /**
+     * Deletes the row of the item
+     */
     if ($_POST['key'] == 'deleteRow') {
         $iDRow = $_POST['rowID'];
         $deleteQuery = "DELETE FROM NASSA_items WHERE item_id = :rowID";
@@ -84,28 +79,20 @@ if (isset($_POST['key'])) {
         }
 
     }
-
+    /**
+     * Gets all data from the database and returns them line by line
+     * forming the table.
+     */
     if ($_POST['key'] == 'existingData') {
 
         $start = $_POST['start'];
         $limit = $_POST['limit'];
 
-//        $start = 0;
-//        $limit = 5;
-
         $sqlQuery = "SELECT * FROM NASSA_items ";
         $statement = $dbConnection->prepare($sqlQuery); //prepare statement
-//        $statement->bindParam(':start', $start, PDO::PARAM_INT);
-//        $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
         $statement->execute();
 
-
-
-//        echo var_dump($statement);
-
-
         if ($statement->rowCount() > 0) {
-
             $response = '';
             $data = array();
             while ($row = $statement->fetch()) {
@@ -127,7 +114,6 @@ if (isset($_POST['key'])) {
                 </tr>
                 ';
             }
-//            echo var_dump($row);
             exit($response);
         }
         else {
@@ -155,10 +141,9 @@ if (isset($_POST['key'])) {
     $itemDataSet = $itemDataObject->getDataByQuery($duplicityCheckQuery);
 
 
-
-
-
-    //update item in the database
+    /**
+     * Updates data in the database for a selected row.
+     */
     if ($_POST['key'] == 'updateRow') {
         $iDRow = $_POST['rowID'];
         $updateQuery = "UPDATE NASSA_items SET item_name=:productName, item_type=:productType, item_color=:productColor,
@@ -189,25 +174,6 @@ if (isset($_POST['key'])) {
         if (!empty($itemDataSet)) {
             exit('Produkt s timto nazvem a farbou uz existuje');
         } else {
-
-
-//            if (isset($_FILES['attachments'])) {
-//                $imgExtention = rand(false);
-//                $msg = "";
-//                $productImg = $imgExtention . basename($_FILES['attachments']['name'][0]);
-//                $targetFile = "Uploads/" . $productImg;
-//
-//                if (file_exists($targetFile))
-//                    $msg = array("status" => 0, "msg" => "File already exists!");
-//                else if (move_uploaded_file($_FILES['attachments']['tmp_name'][0], $targetFile))
-//                    $msg = array("status" => 1, "msg" => "File Has Been Uploaded", "path" => $targetFile);
-//
-//                exit(json_encode($msg));
-//            }
-
-
-
-
             $addItemQuery = ("INSERT INTO NASSA_items (item_name, item_type, item_color, 
               item_price, item_brand, item_size, item_quantity, item_img) VALUES (:productName, :productType, 
                :productColor, :productPrice, :productBrand,:productSize, :productQuantity, :productImg)");
@@ -226,14 +192,9 @@ if (isset($_POST['key'])) {
             } else {
                 exit('Error: Produkt nebol ulozeny.' . ' '. var_dump($stmt->errorInfo()));
             }
-
-
         }
     }
     $db->__destruct();
-
-
-
 }
 
 
