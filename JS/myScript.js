@@ -29,12 +29,44 @@ $(function() {
     });
     getData(0, 5);
     getUserData(0, 5);
+    login();
 });
 
 
 
 
+function login() {
+    $("#login").on('click', function () {
+        var email = $("#email").val();
+        var password = $("#password").val();
 
+        if (email == "") {
+            alert('Please enter your email');
+        } else if (password == "") {
+            alert('Please enter your password');
+        } else {
+            $.ajax(
+                {
+                    url: 'index.php',
+                    method: 'POST',
+                    data: {
+                        login: 1,
+                        emailPHP: email,
+                        passwordPHP: password,
+                        dataType: 'text'
+                    },
+                    success: function (response) {
+                        $("#response").html(response);
+
+                        if (response.indexOf('success') >= 0) {
+                            window.location = 'main.php';
+                        }
+                    }
+                }
+            );
+        }
+    });
+}
 
 function getData(start, limit) {
     $.ajax({
@@ -108,18 +140,34 @@ function addItemToBasketClick(rowID) {
     var enterQuantity = $("#enterQuantity");
 
     if (isNotProductInputEmpty(enterQuantity)) {
+
+
+        function getBasketItems(response) {
+            // var qty = inputQty;
+            var itemTags = '';
+            for (var key in response.basketItems) {
+                if (response.basketItems.hasOwnProperty(key)) {
+                    // var qty = '<?php echo $_SESSION["Item' + response.basketItems[key].item['itemID'] + '"]; ?>';
+                    itemTags += '<p id="' + enterQuantity.val() + '">Name: ' + response.basketItems[key].itemB['itemName'] + ' QTY: ' + response.basketItems[key].qty + '</p>';
+                }
+            }
+            // console.log((<?php echo $_SESSION["Item' + response.basketItems[key]['itemID'] + '"]; ?>);
+            console.log(itemTags);
+            return itemTags;
+        }
         $.ajax({
-            url: 'ajax.php',
+            url: 'basket.php',
             method: 'POST',
             dataType: 'json',
             data: {
-                key: 'getRowData',
+                key: 'basket',
                 rowID: rowID,
                 qtyInput: enterQuantity.val()
             },
             success: function (response) {
-                if (enterQuantity.val() > parseInt(response.itemQuantity)) {
-                    alert("Lutujeme ale zvoleny pocet nieje dostupny. Dostupnych je: " + response.itemQuantity + "kusu.");
+
+                if (enterQuantity.val() > parseInt(response.itemClicked['itemQuantity'])) {
+                    alert("Lutujeme ale zvoleny pocet nieje dostupny. Dostupnych je: " + response.itemClicked['itemQuantity'] + "kusu.");
                 } else {
                     $("#itemSummaryModal").modal('hide');
                     // if ( $("#sideBasket").style.display === "none") {
@@ -127,7 +175,14 @@ function addItemToBasketClick(rowID) {
                     // } else {
                     //     $("#sideBasket").style.display = "none";
                     // }
-                    $("#sideBasket").append('<p id=" rowID ">Produkt: ' + response.itemName + '</p>');
+
+
+                    $("#itemsInBasket").html(getBasketItems(response));
+
+
+                    // $("#sideBasket").append('<p id=" rowID ">Produkt: ' + response.itemName + ', Quantity: ' + enterQuantity.val() + '' +
+                    //     ', Price Total: ' + (parseFloat(enterQuantity.val()) * parseFloat(response.itemPrice))+'£' + '</p>');
+
 
 
                 }

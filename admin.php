@@ -3,6 +3,14 @@
 require_once ('Model/ItemsDataSet.php');
 require_once ('Model/Database.php');
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if ($_SESSION['name'] !== 'admin' ) {
+    header('location: index.php');
+
+}
+
 $view = new stdClass();
 $view->pageTitle = 'Admin';
 

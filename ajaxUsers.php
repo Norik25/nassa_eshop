@@ -10,6 +10,8 @@ require_once ('Model/UserDataSet.php');
 
 $db = Database::getInstance();
 $dbConnection = $db->getdbConnection();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 if (isset($_POST['key'])) {
 
@@ -136,8 +138,14 @@ if (isset($_POST['key'])) {
             exit('Error: ' . var_dump($stmt->errorInfo()) );
         }
     }
-    $passwordTemp = "123456";
-
+    $token = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM0987654321";
+    $token = str_shuffle($token);
+    $token = substr($token, 0, 15);
+//    $password = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM0987654321";
+//    $password = str_shuffle($password);
+//    $password = substr($password, 0, 15);
+    $password = '123456';
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $itemID = "";
     //adding item to the database
     if ($_POST['key'] == 'addNewUser') {
@@ -145,8 +153,8 @@ if (isset($_POST['key'])) {
             exit('Pouzivatel s timto emailem uz existuje');
         } else {
             $addUserQuery = ("INSERT INTO NASSA_users (user_email, user_password, user_CompanyName, 
-              user_phone, user_ico, user_dic, user_address, user_city, user_postCode) VALUES (:userEmail, $passwordTemp, 
-               :userCompanyName, :userPhone, :userICO,:userDIC, :userAddress, :userCity, :userPostCode)");
+              user_phone, user_ico, user_dic, user_address, user_city, user_postCode, user_isEmailConfirmed, token) VALUES (:userEmail, '$hashedPassword', 
+               :userCompanyName, :userPhone, :userICO,:userDIC, :userAddress, :userCity, :userPostCode, '0', '$token')");
             $stmt = $dbConnection->prepare($addUserQuery);
             $stmt->bindParam(':userCompanyName', $companyName, PDO::PARAM_STR);
             $stmt->bindParam(':userEmail', $userEmail, PDO::PARAM_STR);
@@ -158,11 +166,33 @@ if (isset($_POST['key'])) {
             $stmt->bindParam(':userDIC', $userDIC, PDO::PARAM_STR);
 
             if ($stmt->execute()) {
-                exit('Produkt bol uspesne ulozeny v databaze.' );
+//                include_once "PHPMailer/PHPMailer.php";
+//                include_once "PHPMailer/Exception.php";
+//                include_once "PHPMailer/SMTP.php";
+//
+//                $mail = new PHPMailer();
+//                $mail->setFrom('n.nazarej@edu.salford.ac.uk');
+//                $mail->addAddress($userEmail, $companyName);
+//                $mail->Subject = "NASSA Registration verification Email";
+//                $mail->isHTML(true);
+//                $mail->Body = "
+//                Please click on the ling below:<br><br>
+//
+//                <a href='localhost:8080/confirm.php?email=$userEmail&token=$token'>Click hre to verify.</a>
+//                ";
+
+//                if ($mail->send()) {
+                    exit('Produkt bol uspesne ulozeny v databaze.' );
+//                } else {
+                    exit('Something wrong happened.');
+//                }
+
+
             } else {
                 exit('Error: Produkt nebol ulozeny.' . ' '. var_dump($stmt->errorInfo()));
             }
         }
     }
     $db->__destruct();
+
 }

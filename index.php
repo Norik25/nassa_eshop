@@ -2,65 +2,66 @@
 /**
  * Created by PhpStorm.
  * User: oem
- * Date: 13/06/2018
- * Time: 15:39
+ * Date: 09/07/2018
+ * Time: 17:29
  */
-
-require_once ('Model/ItemsDataSet.php');
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_SESSION['loggedIN'])) {
+    header('Location: main.php');
+    exit();
+}
 require_once ('Model/Database.php');
 
+
 $view = new stdClass();
-$view->pageTitle = 'Homepage';
+$view->pageTitle = 'Login';
 
-require_once ('Model/ItemsDataSet.php');
+$db = Database::getInstance();
+$dbConnection = $db->getdbConnection();
 
+if (isset($_POST['login'])) {
+    $email = $_POST['emailPHP'];
+    $password = $_POST['passwordPHP'];
+//    $inputError = array();
+//    $dataError = array();
 
-$itemDataObject = new ItemsDataSet();
-$items = $itemDataObject->fetchAllData();
-$name = $itemDataObject->getAllItemNames();
+//    if ($email == "")  {
+//        array_push($inputError, 'Prosim vlozte email.');
+//    } elseif ($password == "") {
+//        array_push($inputError, 'Prosim vlozte password.');
+//    }
+    $loginQuery = "SELECT user_id, user_password, user_companyName FROM NASSA_users WHERE user_email=:email";
+    $stmt = $dbConnection->prepare($loginQuery);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        $data = "";
+        if ($row = $stmt->fetch()) {
+            $data = $row;
+        } else {
+            exit('Email neexistuje.');
+        }
+        if (password_verify($password, $data['user_password'])) {
 
-//$view->itemID = "";
-//$view->itemByID = "";
-//
-//if (isset($_POST['getRowIDIndex'])) {
-//    $view->itemID = $_POST['getRowIDIndex'];
-//    $view->itemByID = $itemDataObject->getItemsByID($view->itemID);
-//}
-
-
-//if ($_POST['key'] == 'getRowData') {
-//    $rowID = $_POST['rowID'];
-////        $dataRowQuery = "SELECT * FROM NASSA_items WHERE item_id=':rowID'";
-////        $statement = $dbConnection->prepare($dataRowQuery); //prepare statement
-////        $statement->bindParam(':rowID', $rowID, PDO::PARAM_STR);
-////
-////        $rowData = $statement->fetch();
-//
-//    $itemDataObjectRow = new ItemsDataSet();
-//    $itemDataSetRow = $itemDataObjectRow->getItemsByID($rowID);
-//
-//    $jsonArray = array(
-//        'itemName' => $itemDataSetRow[0]->getItemName(),
-//        'itemType' => $itemDataSetRow[0]->getItemType(),
-//        'itemColor' => $itemDataSetRow[0]->getItemColor(),
-//        'itemPrice' => $itemDataSetRow[0]->getItemPrice(),
-//        'itemBrand' => $itemDataSetRow[0]->getItemBrand(),
-//        'itemSize' => $itemDataSetRow[0]->getItemSize(),
-//        'itemQuantity' => $itemDataSetRow[0]->getItemQuantity(),
-//        'itemImage' => $itemDataSetRow[0]->getItemImage(),
-//
-//    );
-//    exit(json_encode($jsonArray));
-//
-//}
+            $_SESSION['loggedIN'] = '1';
+            $_SESSION['email'] = $email;
+            $_SESSION['name'] = $data['user_companyName'];
+            exit('success');
+        } else {
+            exit('Nespravny password.');
+        }
+    } else {
+        exit('Zadany email neexistuje.');
+    }
 
 
 
 
 
 
-
-
+}
 
 
 require_once('View/index.phtml');

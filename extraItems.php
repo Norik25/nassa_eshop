@@ -6,6 +6,15 @@
  * Time: 06:06
  */
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['name'])) {
+    header('location: index.php');
+
+}
+
 $view = new stdClass();
 $view->pageTitle = 'Extra';
 
