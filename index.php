@@ -5,6 +5,13 @@
  * Date: 09/07/2018
  * Time: 17:29
  */
+
+require_once ('Model/Database.php');
+
+
+$view = new stdClass();
+$view->pageTitle = 'Login';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -12,11 +19,6 @@ if (isset($_SESSION['loggedIN'])) {
     header('Location: main.php');
     exit();
 }
-require_once ('Model/Database.php');
-
-
-$view = new stdClass();
-$view->pageTitle = 'Login';
 
 $db = Database::getInstance();
 $dbConnection = $db->getdbConnection();

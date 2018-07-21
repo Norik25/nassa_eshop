@@ -6,15 +6,16 @@
  * Time: 13:19
  */
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+
 
 require_once ('Model/Database.php');
 require_once ('Model/ItemsDataSet.php');
 
 $view = new stdClass();
 $view->pageTitle = 'Basket';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $selectedItems = array();
 
@@ -24,17 +25,34 @@ if ($_POST['key'] == 'basket') {
     $itemId = $_POST['rowID'];
     $item = $itemDataObject->getItemsByID($itemId)[0];
     $qtyOfClickedItem = $_POST['qtyInput'];
-    $_SESSION['basketItems'][$item->getItemID()] = array('itemB' => $item, 'qty' => $qtyOfClickedItem);
-    $_SESSION['Item' . $item->getItemID()] = $qtyOfClickedItem;
-    $items = array();
-    $items = $_SESSION['basketItems'];
+    if (intval($qtyOfClickedItem) <= intval($item->getItemQuantity())) {
+        $_SESSION['basketItems'][$item->getItemID()] = array('itemB' => $item, 'qty' => $qtyOfClickedItem);
+//        $_SESSION['Item' . $item->getItemID()] = $qtyOfClickedItem;
+        $items = array();
+        $items = $_SESSION['basketItems'];
+        $jsonArray = array(
+//            'qty' => $_SESSION['Item' . $item->getItemID()],
+            'itemClicked' => $item,
+            'itemsInBasket' => count($_SESSION['basketItems']),
+            'basketItems' => $items,
+        );
+        exit(json_encode($jsonArray));
+    } else {
+        $jsonArray = array(
+//            'qty' => $_SESSION['Item' . $item->getItemID()],
+            'itemClicked' => $item,
+            'itemsInBasket' => 0,
+            'basketItems' => null,
+        );
+        exit(json_encode($jsonArray));
+    }
+}
 
-
+if ($_POST['key'] == 'deleteRow') {
+    $rowID = $_POST['rowID'];
+    unset($_SESSION['basketItems'][$rowID]);
     $jsonArray = array(
-        'qty' => $_SESSION['Item' . $item->getItemID()],
-        'itemClicked' => $item,
-        'itemsInBasket' => count($_SESSION['basketItems']),
-        'basketItems' => $items,
+        'qty' => count($_SESSION['basketItems'])
     );
     exit(json_encode($jsonArray));
 }

@@ -2,14 +2,46 @@
 
     <div class="container" style="margin-top: 100px; ">
 
-        <div id="sideBasket">
-        <center><h1>Shrnutí objednávky</h1></center>
-        <hr>
+<!--        <div id="sideBasket">-->
+<!--        <center><h1>Shrnutí objednávky</h1></center>-->
+<!--        <hr>-->
+<!---->
+<!--        </div>-->
 
+        <div  id="baskIcon" >
+            <button id="qtyIcon" class="btn btn-lg"><span><i class="fas fa-shopping-cart"></i>  <?php if(isset($_SESSION["basketItems"])){
+                        echo count($_SESSION["basketItems"]);
+                    }else{
+                        echo 0;
+                    }
+                    ?></span></button>
+<!--            <button id="qtyIcon" class="btn btn-lg"><span><i class="fas fa-shopping-cart"></i> </span></button>-->
+<!--            <a href="#" style="text-decoration: none;">-->
+<!--            <center><img src="Pics/basket.png" width="30px" height="20px" style="margin-top: 10px"></center>-->
+<!--            <center><p id="selectedQP" style="margin-top: 5px;">--><?php
+//                    if(isset($_SESSION["basketItems"])){
+//                        echo count($_SESSION["basketItems"]);
+//                    }else{
+//                        echo 0;
+//                    }
+//                    ?><!--</p></center>-->
+<!--            </a>-->
         </div>
-        <div>
-            <p id="itemsInBasket"></p>
+
+        <div class="arrow_box" id="itemsInBasket" style="display:none;">
+            <h1 style="margin-left: 20px">Vas Kosik</h1>
+            <hr>
+            <?php if(isset($_SESSION["basketItems"])){ ?>
+            <?php foreach ($_SESSION["basketItems"]  as $key => $item) { ?>
+<!--                <p>Name: --><?php //echo var_dump($item['itemB'])?><!--</p>-->
+                <div  id="basketRmv" class="item_<?php echo $item['itemB']->getItemID() ?>">Name: <?php echo $item['itemB']->getItemName() ?> QTY: <?php echo $item['qty']?> <button id="deleteBask" class="btn btn-danger btn-sm" onclick="deleteItemFromBasket(<?php echo $item['itemB']->getItemID() ?>)"><input type="hidden" value="<?php echo $item['itemB']->getItemID() ?>"><span><i class="far fa-trash-alt"></i></span></button></div>
+                    <hr>
+
+
+                <?php }?>
+            <?php } ?>
         </div>
+
         <!-- Modal -->
         <div id="itemSummaryModal" class="modal fade" role="dialog">
             <div class="modal-dialog">

@@ -6,24 +6,27 @@
  * Time: 15:39
  */
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+
 
 require_once ('Model/ItemsDataSet.php');
 require_once ('Model/Database.php');
 
 
 
+
+
+$view = new stdClass();
+$view->pageTitle = 'Homepage';
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION['name'])) {
     header('location: index.php');
 
 }
 
-$view = new stdClass();
-$view->pageTitle = 'Homepage';
-
-require_once ('Model/ItemsDataSet.php');
 
 
 $itemDataObject = new ItemsDataSet();

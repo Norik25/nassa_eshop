@@ -30,7 +30,17 @@ $(function() {
     getData(0, 5);
     getUserData(0, 5);
     login();
+    toggleBasket();
 });
+
+/**
+ * Toggles basket and shows all the selected items inside.
+ */
+function toggleBasket() {
+    $("#baskIcon").click( function () {
+       $("#itemsInBasket").toggle();
+    });
+}
 
 
 
@@ -68,7 +78,7 @@ function login() {
     });
 }
 
-function getData(start, limit) {
+function getData(start, limit){
     $.ajax({
         url: 'ajax.php',
         method: 'POST',
@@ -84,9 +94,9 @@ function getData(start, limit) {
             $('#itemTable').DataTable();
         }
 
-    });
+    });}
 
-}function getUserData(start, limit) {
+    function getUserData(start, limit) {
     $.ajax({
         url: 'ajaxUsers.php',
         method: 'POST',
@@ -142,19 +152,18 @@ function addItemToBasketClick(rowID) {
     if (isNotProductInputEmpty(enterQuantity)) {
 
 
-        function getBasketItems(response) {
-            // var qty = inputQty;
-            var itemTags = '';
-            for (var key in response.basketItems) {
-                if (response.basketItems.hasOwnProperty(key)) {
-                    // var qty = '<?php echo $_SESSION["Item' + response.basketItems[key].item['itemID'] + '"]; ?>';
-                    itemTags += '<p id="' + enterQuantity.val() + '">Name: ' + response.basketItems[key].itemB['itemName'] + ' QTY: ' + response.basketItems[key].qty + '</p>';
-                }
-            }
-            // console.log((<?php echo $_SESSION["Item' + response.basketItems[key]['itemID'] + '"]; ?>);
-            console.log(itemTags);
-            return itemTags;
-        }
+        // function getBasketItems(response) {
+        //     // var qty = inputQty;
+        //     var itemTags = '';
+        //     for (var key in response.basketItems) {
+        //         if (response.basketItems.hasOwnProperty(key)) {
+        //             // var qty = '<?php echo $_SESSION["Item' + response.basketItems[key].item['itemID'] + '"]; ?>';
+        //             itemTags += '<div id="basketRmv">Name: ' + response.basketItems[key].itemB['itemName'] + ' QTY: ' + response.basketItems[key].qty + '</div><hr>';
+        //         }
+        //     }
+        //     // console.log((<?php echo $_SESSION["Item' + response.basketItems[key]['itemID'] + '"]; ?>);
+        //     return itemTags;
+        // }
         $.ajax({
             url: 'basket.php',
             method: 'POST',
@@ -167,7 +176,7 @@ function addItemToBasketClick(rowID) {
             success: function (response) {
 
                 if (enterQuantity.val() > parseInt(response.itemClicked['itemQuantity'])) {
-                    alert("Lutujeme ale zvoleny pocet nieje dostupny. Dostupnych je: " + response.itemClicked['itemQuantity'] + "kusu.");
+                    alert("Lutujeme ale zvoleny pocet nieje dostupny. Dostupnych je: " + response.itemClicked['itemQuantity'] + " kusu.");
                 } else {
                     $("#itemSummaryModal").modal('hide');
                     // if ( $("#sideBasket").style.display === "none") {
@@ -175,14 +184,13 @@ function addItemToBasketClick(rowID) {
                     // } else {
                     //     $("#sideBasket").style.display = "none";
                     // }
-
-
-                    $("#itemsInBasket").html(getBasketItems(response));
+                    // $("#itemsInBasket").append(getBasketItems(response));
+                    $("#itemsInBasket").append('<div id="basketRmv" class="item_'+response.itemClicked['itemID']+'">Name: ' + response.itemClicked['itemName'] + ' QTY: ' + enterQuantity.val() + ' <button id="deleteBask" class="btn btn-danger btn-sm" onclick="deleteItemFromBasket(' + response.itemClicked['itemID'] + ')"><input type="hidden" value="' + response.itemClicked['itemID'] + '"><span><i class="far fa-trash-alt"></i></span></button></div><hr>');
+                    $("#baskIcon").html('<button id="qtyIcon" class="btn btn-lg"><span><i class="fas fa-shopping-cart"></i> ' + response.itemsInBasket + '</span></button>');
 
 
                     // $("#sideBasket").append('<p id=" rowID ">Produkt: ' + response.itemName + ', Quantity: ' + enterQuantity.val() + '' +
                     //     ', Price Total: ' + (parseFloat(enterQuantity.val()) * parseFloat(response.itemPrice))+'£' + '</p>');
-
 
 
                 }
@@ -190,104 +198,127 @@ function addItemToBasketClick(rowID) {
             }
         });
     }
-
-
-
 }
 
-function deleteItem(rowID) {
+    function deleteItemFromBasket(rowID) {
 
-    if (confirm('Naozaj chcete odstranit produkt?')) {
+        if (confirm('Naozaj chcete odstranit produkt?')) {
+            $.ajax({
+                url: 'basket.php',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    key: 'deleteRow',
+                    rowID: rowID
+                },
+                success: function (response) {
+                    $(".item_" + rowID).parent().remove();
+                    $("#baskIcon").html('<button id="qtyIcon" class="btn btn-lg"><span><i class="fas fa-shopping-cart"></i> ' + response.qty + '</span></button>');
+
+                }
+            });
+        }
+
+
+    }
+
+    function deleteItem(rowID) {
+
+        if (confirm('Naozaj chcete odstranit produkt?')) {
+            $.ajax({
+                url: 'ajax.php',
+                method: 'POST',
+                dataType: 'text',
+                data: {
+                    key: 'deleteRow',
+                    rowID: rowID
+                },
+                success: function (response) {
+                    $("#item_" + rowID).parent().remove();
+                    alert(response);
+                }
+            });
+        }
+
+    }
+
+    function deleteUser(rowID) {
+
+        if (confirm('Naozaj chcete odstranit uzivatele?')) {
+            $.ajax({
+                url: 'ajaxUsers.php',
+                method: 'POST',
+                dataType: 'text',
+                data: {
+                    key: 'deleteRow',
+                    rowID: rowID
+                },
+                success: function (response) {
+                    $("#user_" + rowID).parent().remove();
+                    alert(response);
+                }
+            });
+        }
+
+    }
+
+    function editItem(rowID) {
+
         $.ajax({
             url: 'ajax.php',
             method: 'POST',
-            dataType: 'text',
+            dataType: 'json',
             data: {
-                key: 'deleteRow',
+                key: 'getRowData',
                 rowID: rowID
             },
             success: function (response) {
-                $("#item_" + rowID).parent().remove();
-                alert(response);
+                // fileUploader();
+                $("#editRowID").val(rowID);
+                $("#product-name").val(response.itemName);
+                $("#product-type").val(response.itemType);
+                $("#product-brand").val(response.itemBrand);
+                $("#product-color").val(response.itemColor);
+                $("#product-size").val(response.itemSize);
+                $("#product-price").val(response.itemPrice);
+                $("#product-quantity").val(response.itemQuantity);
+                $("#myModal").modal('show');
+                $("#manageBtn").attr('value', 'Uloz zmeny').attr('onclick', "addItem('updateRow')");
+
+
             }
         });
+
     }
 
-}function deleteUser(rowID) {
+    function editUser(rowID) {
 
-    if (confirm('Naozaj chcete odstranit uzivatele?')) {
         $.ajax({
             url: 'ajaxUsers.php',
             method: 'POST',
-            dataType: 'text',
+            dataType: 'json',
             data: {
-                key: 'deleteRow',
-                rowID: rowID
+                key: 'getRowUserData',
+                rowIDUser: rowID
             },
             success: function (response) {
-                $("#user_" + rowID).parent().remove();
-                alert(response);
+                // fileUploader();
+                $("#editUsersRowID").val(rowID);
+                $("#companyName").val(response.userCompanyName);
+                $("#userEmail").val(response.userEmail);
+                $("#userPhone").val(response.userPhone);
+                $("#userAddress").val(response.userAddress);
+                $("#userCity").val(response.userCity);
+                $("#userPostCode").val(response.userPostCode);
+                $("#userICO").val(response.userICO);
+                $("#userDIC").val(response.userDIC);
+                $("#modalUserAdd").modal('show');
+                $("#manageBtnUser").attr('value', 'Uloz zmeny').attr('onclick', "addUser('updateUserRow')");
+
+
             }
         });
     }
-
-}
-
-function editItem(rowID) {
-
-    $.ajax({
-        url: 'ajax.php',
-        method: 'POST',
-        dataType: 'json',
-        data: {
-            key: 'getRowData',
-            rowID : rowID
-        },
-        success: function (response) {
-            // fileUploader();
-            $("#editRowID").val(rowID);
-            $("#product-name").val(response.itemName);
-            $("#product-type").val(response.itemType);
-            $("#product-brand").val(response.itemBrand);
-            $("#product-color").val(response.itemColor);
-            $("#product-size").val(response.itemSize);
-            $("#product-price").val(response.itemPrice);
-            $("#product-quantity").val(response.itemQuantity);
-            $("#myModal").modal('show');
-            $("#manageBtn").attr('value', 'Uloz zmeny').attr('onclick', "addItem('updateRow')");
-
-
-        }
-    });
-
-}function editUser(rowID) {
-
-    $.ajax({
-        url: 'ajaxUsers.php',
-        method: 'POST',
-        dataType: 'json',
-        data: {
-            key: 'getRowUserData',
-            rowIDUser: rowID
-        },
-        success: function (response) {
-            // fileUploader();
-            $("#editUsersRowID").val(rowID);
-            $("#companyName").val(response.userCompanyName);
-            $("#userEmail").val(response.userEmail);
-            $("#userPhone").val(response.userPhone);
-            $("#userAddress").val(response.userAddress);
-            $("#userCity").val(response.userCity);
-            $("#userPostCode").val(response.userPostCode);
-            $("#userICO").val(response.userICO);
-            $("#userDIC").val(response.userDIC);
-            $("#modalUserAdd").modal('show');
-            $("#manageBtnUser").attr('value', 'Uloz zmeny').attr('onclick', "addUser('updateUserRow')");
-
-
-        }
-    });
-}
 
 
 // $(document).ready(function() {
@@ -299,212 +330,210 @@ function editItem(rowID) {
 // } );
 
 
+    /**
+     * Adds item to the database when the Vlozit Produkt' button is pressed
+     * @param key
+     */
+    function addItem(key) {
+
+        var productName = $("#product-name");
+        var productType = $("#product-type");
+        var productBrand = $("#product-brand");
+        var productColor = $("#product-color");
+        var productSize = $("#product-size");
+        var productPrice = $("#product-price");
+        var productQuantity = $("#product-quantity");
+        var editRowID = $("#editRowID");
+        var pic = $("#fileupload");
 
 
+        if (isNotProductInputEmpty(productName) && isNotProductInputEmpty(productType) && isNotProductInputEmpty(productBrand) &&
+            isNotProductInputEmpty(productColor) && isNotProductInputEmpty(productSize) &&
+            isNotProductInputEmpty(productPrice) && isNotProductInputEmpty(productQuantity)) {
+            $.ajax({
+                url: 'ajax.php',
+                method: 'POST',
+                dataType: 'text',
+                data: {
+                    key: key,
+                    name: productName.val(),
+                    type: productType.val(),
+                    brand: productBrand.val(),
+                    color: productColor.val(),
+                    size: productSize.val(),
+                    price: productPrice.val(),
+                    quantity: productQuantity.val(),
+                    rowID: editRowID.val(),
+                    pic: pic.val()
 
+                },
+                success: function (response) {
+                    if (response != 'Produkt bol uspesne upraveny.') {
+                        alert(response);
+                    } else {
 
-/**
- * Adds item to the database when the Vlozit Produkt' button is pressed
- * @param key
- */
-function addItem(key) {
+                        // $("#item_"+editRowID.val()).html(name.val());
+                        productName.val('');
+                        productType.val('');
+                        productBrand.val('');
+                        productColor.val('');
+                        productSize.val('');
+                        productPrice.val('');
+                        productQuantity.val('');
+                        $("#myModal").modal('hide');
+                        $("#manageBtn").attr('value', 'Pridat Produkt').attr('onclick', "addItem('addNew')");
+                    }
 
-    var productName = $("#product-name");
-    var productType = $("#product-type");
-    var productBrand = $("#product-brand");
-    var productColor = $("#product-color");
-    var productSize = $("#product-size");
-    var productPrice = $("#product-price");
-    var productQuantity = $("#product-quantity");
-    var editRowID = $("#editRowID");
-    var pic = $("#fileupload");
-
-
-
-    if (isNotProductInputEmpty(productName) && isNotProductInputEmpty(productType) && isNotProductInputEmpty(productBrand) &&
-        isNotProductInputEmpty(productColor) && isNotProductInputEmpty(productSize) &&
-        isNotProductInputEmpty(productPrice) && isNotProductInputEmpty(productQuantity)) {
-        $.ajax({
-            url: 'ajax.php',
-            method: 'POST',
-            dataType: 'text',
-            data: {
-                key: key,
-                name: productName.val(),
-                type: productType.val(),
-                brand: productBrand.val(),
-                color: productColor.val(),
-                size: productSize.val(),
-                price: productPrice.val(),
-                quantity: productQuantity.val(),
-                rowID: editRowID.val(),
-                pic: pic.val()
-
-            },
-            success: function (response) {
-                if (response != 'Produkt bol uspesne upraveny.') {
-                    alert(response);
-                } else {
-
-                    // $("#item_"+editRowID.val()).html(name.val());
-                    productName.val('');
-                    productType.val('');
-                    productBrand.val('');
-                    productColor.val('');
-                    productSize.val('');
-                    productPrice.val('');
-                    productQuantity.val('');
-                    $("#myModal").modal('hide');
-                    $("#manageBtn").attr('value', 'Pridat Produkt').attr('onclick', "addItem('addNew')");
                 }
-
-            }
-        });
-    }
-
-}/**
- * Adds user to the database when the Pridat uzivatele' button is pressed
- * @param key
- */
-function addUser(key) {
-
-    var companyName = $("#companyName");
-    var userEmail = $("#userEmail");
-    var userPhone = $("#userPhone");
-    var userAddress = $("#userAddress");
-    var userCity = $("#userCity");
-    var userPostCode = $("#userPostCode");
-    var userICO = $("#userICO");
-    var userDIC = $("#userDIC");
-    var editRowID = $("#editUsersRowID");
-
-
-
-
-    if (isNotProductInputEmpty(companyName) && isNotProductInputEmpty(userEmail) && isNotProductInputEmpty(userPhone) &&
-        isNotProductInputEmpty(userAddress) && isNotProductInputEmpty(userCity) &&
-        isNotProductInputEmpty(userPostCode) && isNotProductInputEmpty(userICO) && isNotProductInputEmpty(userDIC)) {
-        $.ajax({
-            url: 'ajaxUsers.php',
-            method: 'POST',
-            dataType: 'text',
-            data: {
-                key: key,
-                companyName: companyName.val(),
-                userEmail: userEmail.val(),
-                userPhone: userPhone.val(),
-                userAddress: userAddress.val(),
-                userCity: userCity.val(),
-                userPostCode: userPostCode.val(),
-                userICO: userICO.val(),
-                userDIC: userDIC.val(),
-                rowIDUser: editRowID.val()
-
-
-            },
-            success: function (response) {
-                if (response != 'Pouzivatel bol uspense pridany.') {
-                    alert(response);
-                } else {
-                    companyName.val('');
-                    userEmail.val('');
-                    userPhone.val('');
-                    userAddress.val('');
-                    userCity.val('');
-                    userPostCode.val('');
-                    userICO.val('');
-                    userDIC.val('');
-                    $("#modalUserAdd").modal('hide');
-                    $("#manageBtnUser").attr('value', 'Pridat Uzivatele').attr('onclick', "addUser('addNewUser')");
-                }
-
-            }
-        });
-    }
-
-}
-
-/**
- * Preview of the picture
- * @param input
- */
-
-function readImg(input) {
-    if (input.files && input.files[0]) {
-        input.files[0].name = Math.random() + input.files[0].name;
-
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#files').fadeIn();
-            console.log(input.files[0].name);
-            $('#picPrew').attr('src', e.target.result);
+            });
         }
-        reader.readAsDataURL(input.files[0]);
+
     }
-}
 
-/**
- * Notifies the user if the input from is empty
- * @param caller
- * @returns {boolean}
- */
-function isNotProductInputEmpty(caller) {
-    if (caller.val() === '' || caller.value === null) {
-        caller.css('border', '1px solid red');
-        return false;
-    } else {
-        caller.css('border', '');
+    /**
+     * Adds user to the database when the Pridat uzivatele' button is pressed
+     * @param key
+     */
+    function addUser(key) {
+
+        var companyName = $("#companyName");
+        var userEmail = $("#userEmail");
+        var userPhone = $("#userPhone");
+        var userAddress = $("#userAddress");
+        var userCity = $("#userCity");
+        var userPostCode = $("#userPostCode");
+        var userICO = $("#userICO");
+        var userDIC = $("#userDIC");
+        var editRowID = $("#editUsersRowID");
+
+
+        if (isNotProductInputEmpty(companyName) && isNotProductInputEmpty(userEmail) && isNotProductInputEmpty(userPhone) &&
+            isNotProductInputEmpty(userAddress) && isNotProductInputEmpty(userCity) &&
+            isNotProductInputEmpty(userPostCode) && isNotProductInputEmpty(userICO) && isNotProductInputEmpty(userDIC)) {
+            $.ajax({
+                url: 'ajaxUsers.php',
+                method: 'POST',
+                dataType: 'text',
+                data: {
+                    key: key,
+                    companyName: companyName.val(),
+                    userEmail: userEmail.val(),
+                    userPhone: userPhone.val(),
+                    userAddress: userAddress.val(),
+                    userCity: userCity.val(),
+                    userPostCode: userPostCode.val(),
+                    userICO: userICO.val(),
+                    userDIC: userDIC.val(),
+                    rowIDUser: editRowID.val()
+
+
+                },
+                success: function (response) {
+                    if (response != 'Pouzivatel bol uspense pridany.') {
+                        alert(response);
+                    } else {
+                        companyName.val('');
+                        userEmail.val('');
+                        userPhone.val('');
+                        userAddress.val('');
+                        userCity.val('');
+                        userPostCode.val('');
+                        userICO.val('');
+                        userDIC.val('');
+                        $("#modalUserAdd").modal('hide');
+                        $("#manageBtnUser").attr('value', 'Pridat Uzivatele').attr('onclick', "addUser('addNewUser')");
+                    }
+
+                }
+            });
+        }
+
     }
-    return true;
-}
 
-/**
- * Manages file uploads to the server
- */
-function fileUploader() {
-    $(function () {
-        var files = $("#files");
+    /**
+     * Preview of the picture
+     * @param input
+     */
 
-        $('#fileupload').fileupload({
-            url: 'ajax.php',
-            dropZone: '#dropZone',
-            dataType: 'json',
-            replaceFileInput:false,
-            autoUpload: false
+    function readImg(input) {
+        if (input.files && input.files[0]) {
+            input.files[0].name = Math.random() + input.files[0].name;
 
-        }).on('fileuploadadd', function (e, data) {
-            var fileTypeAllowed = /.\.(gif|jpg|png|jpeg)$/i;
-            // console.log(data.originalFiles[0]['name']);
-            var fileName = data.originalFiles[0]['name'];
-            var fileSize = data.originalFiles[0]['size'];
-
-            if(!fileTypeAllowed.test(fileName)) {
-                $('#error').html('Prosim vloz image file.');
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#files').fadeIn();
+                console.log(input.files[0].name);
+                $('#picPrew').attr('src', e.target.result);
             }
-            else if (fileSize > 500000) {
-                $('#error').html('Tvoj obrazok je prilis velky. Max velkost obrazku je 500KB');
-            } else {
-                $('#error').html("");
-                readImg(data);
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
-                $("#addImage").on('click', function () {
-                    data.submit();
-                });
-            }
-        }).on('fileuploaddone', function (e, data) {
-            var status = data.jqXHR.responseJSON.status;
-            var msg = data.jqXHR.responseJSON.msg;
+    /**
+     * Notifies the user if the input from is empty
+     * @param caller
+     * @returns {boolean}
+     */
+    function isNotProductInputEmpty(caller) {
+        if (caller.val() === '' || caller.value === null) {
+            caller.css('border', '1px solid red');
+            return false;
+        } else {
+            caller.css('border', '');
+        }
+        return true;
+    }
 
-            if (status == 1) {
-                var path = data.jqXHR.responseJSON.path;
-                // $("#files").fadeIn().append('<p><img style="width: 100px; height: 75px;" src="'+path+'" /></p>');
-                $("#picAdd").hide();
-                path = "";
+    /**
+     * Manages file uploads to the server
+     */
+    function fileUploader() {
+        $(function () {
+            var files = $("#files");
 
-            } else {
-                $('#error').html(msg);
-            }
+            $('#fileupload').fileupload({
+                url: 'ajax.php',
+                dropZone: '#dropZone',
+                dataType: 'json',
+                replaceFileInput: false,
+                autoUpload: false
+
+            }).on('fileuploadadd', function (e, data) {
+                var fileTypeAllowed = /.\.(gif|jpg|png|jpeg)$/i;
+                // console.log(data.originalFiles[0]['name']);
+                var fileName = data.originalFiles[0]['name'];
+                var fileSize = data.originalFiles[0]['size'];
+
+                if (!fileTypeAllowed.test(fileName)) {
+                    $('#error').html('Prosim vloz image file.');
+                }
+                else if (fileSize > 500000) {
+                    $('#error').html('Tvoj obrazok je prilis velky. Max velkost obrazku je 500KB');
+                } else {
+                    $('#error').html("");
+                    readImg(data);
+
+                    $("#addImage").on('click', function () {
+                        data.submit();
+                    });
+                }
+            }).on('fileuploaddone', function (e, data) {
+                var status = data.jqXHR.responseJSON.status;
+                var msg = data.jqXHR.responseJSON.msg;
+
+                if (status == 1) {
+                    var path = data.jqXHR.responseJSON.path;
+                    // $("#files").fadeIn().append('<p><img style="width: 100px; height: 75px;" src="'+path+'" /></p>');
+                    $("#picAdd").hide();
+                    path = "";
+
+                } else {
+                    $('#error').html(msg);
+                }
+            });
         });
-    });
-}
+    }
+
+
+
 

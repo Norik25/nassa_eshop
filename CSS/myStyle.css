@@ -45,5 +45,78 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+#baskIcon {
+
+    width: 100px;
+    margin-bottom: 70px;
+    margin-left: 45%;
+
+
+
+
+}
+
+#basketRmv {
+    margin-top: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 1px;
+
+
+
+}
+#itemsInBasket {
+    width: 50%;
+    align-self: center;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    margin-left: 23%;
+    background-color: whitesmoke;
+    margin-top: -35px;
+}
+
+.btn {
+    border: 1px solid black;
+
+}
+
+/*#baskIcon :hover {*/
+    /*background-color: gray;*/
+/*}*/
+
+.arrow_box {
+    position: relative;
+    background: #88b7d5;
+    border: 1px solid #c2e1f5;
+}
+.arrow_box:after, .arrow_box:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: whitesmoke;
+    border-width: 35px;
+    margin-left: -35px;
+}
+.arrow_box:before {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: black;
+    border-width: 36px;
+    margin-left: -36px;
+}
+
+#qtyIcon:hover
+{
+    background-image:none !important;
+    background-color:white !important;
+}
 
 
