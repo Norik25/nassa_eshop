@@ -118,5 +118,9 @@
     background-image:none !important;
     background-color:white !important;
 }
+#userConf {
+    width: 40%;
+    height: 600px;
 
+}
 

@@ -1,43 +1,28 @@
 <?php require('View/Template/header.phtml') ?>
 
     <div class="container" style="margin-top: 100px; ">
-
+    <div id="userConf" class="form-group">
         <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="companyName" class="col-form-label">Nazev Firmy:</label>
-                <input type="text" class="form-control" id="companyName">
-            </div>
             <div class="form-group">
                 <label for="userEmail" class="col-form-label">E-Mail:</label>
                 <input type="text" class="form-control" id="userEmail">
             </div>
             <div class="form-group">
-                <label for="userPhone" class="col-form-label">Telefon:</label>
-                <input type="text" class="form-control" id="userPhone">
+                <label for="OldPassword" class="col-form-label">Prosim vlozte stary password:</label>
+                <input type="password" class="form-control" id="oldPsswd">
             </div>
             <div class="form-group">
-                <label for="userAddress" class="col-form-label">Adresa:</label>
-                <input type="text" class="form-control" id="userAddress">
+                <label for="NewPass1" class="col-form-label">Prosim vlozte novy password:</label>
+                <input type="password" class="form-control" id="newPass1">
             </div>
             <div class="form-group">
-                <label for="userCity" class="col-form-label">Město:</label>
-                <input type="text" class="form-control" id="userCity">
-            </div>
-            <div class="form-group">
-                <label for="userPostCode" class="col-form-label">PSČ:</label>
-                <input type="text" class="form-control" id="userPostCode">
-            </div>
-            <div class="form-group">
-                <label for="userICO" class="col-form-label">IČO:</label>
-                <input type="text" class="form-control" id="userICO">
-            </div>
-            <div class="form-group">
-                <label for="userDIC" class="col-form-label">DIČ:</label>
-                <input type="text" class="form-control" id="userDIC">
+                <label for="NewPass2" class="col-form-label">Prosim potvrdte password:</label>
+                <input type="password" class="form-control" id="newPass2">
             </div>
             <input type="hidden" id="editUsersRowID" value="0">
         </form>
         <input  type="button" id="manageBtnUser" onclick="addUser('addNewUser')" value="Ulozit" class="btn btn-success">
+    </div>
 
     </div>  <!-- End of container div -->
 
