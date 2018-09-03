@@ -32,7 +32,10 @@
             <h1 style="margin-left: 20px">Vas Kosik</h1>
             <hr>
             <?php if(isset($_SESSION["basketItems"])){ ?>
-            <?php foreach ($_SESSION["basketItems"]  as $key => $item) { ?>
+            <?php
+                $total = 0;
+                foreach ($_SESSION["basketItems"]  as $key => $item) {
+                    $total += intval($item['qty']) * intval($item['itemB']->getItemPrice()) ?>
 <!--                <p>Name: --><?php //echo var_dump($item['itemB'])?><!--</p>-->
                 <div  id="basketRmv" class="item_<?php echo $item['itemB']->getItemID() ?>">Name: <?php echo $item['itemB']->getItemName() ?> QTY: <?php echo $item['qty']?> <button id="deleteBask" class="btn btn-danger btn-sm" onclick="deleteItemFromBasket(<?php echo $item['itemB']->getItemID() ?>)"><input type="hidden" value="<?php echo $item['itemB']->getItemID() ?>"><span><i class="far fa-trash-alt"></i></span></button></div>
                     <hr>
@@ -40,6 +43,8 @@
 
                 <?php }?>
             <?php } ?>
+            <hr>
+            <p>Total: <?php echo $total ?></p>
         </div>
 
         <!-- Modal -->
